@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+header {
+  background: #ff9800;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.lang-switch button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.coupon-card {
+  background: white;
+  width: 280px;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.coupon-card h2 {
+  margin-bottom: 5px;
+}
+
+button.copy-btn {
+  background: #ff9800;
+  border: none;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Arabic RTL support */
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
