@@ -1,97 +1,30 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f6f8;
-  color: #333;
+function copyCode(code) {
+  navigator.clipboard.writeText(code);
+  alert("Code copied: " + code);
 }
 
-header {
-  background: #111827;
-  color: white;
-  padding: 20px;
-  text-align: center;
+function filterDeals(category) {
+  const deals = document.querySelectorAll(".deal-card");
+
+  deals.forEach(deal => {
+    if (category === "all" || deal.dataset.category === category) {
+      deal.style.display = "block";
+    } else {
+      deal.style.display = "none";
+    }
+  });
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.2rem;
+function setLanguage(lang) {
+  if (lang === "ar") {
+    document.documentElement.lang = "ar";
+    document.body.dir = "rtl";
+    document.getElementById("subtitle").innerText =
+      "أفضل العروض و أكواد التخفيض في المغرب";
+  } else {
+    document.documentElement.lang = "en";
+    document.body.dir = "ltr";
+    document.getElementById("subtitle").innerText =
+      "Best Deals & Promo Codes in Morocco";
+  }
 }
-
-#subtitle {
-  margin-top: 5px;
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-.lang-switch {
-  margin-top: 15px;
-}
-
-.lang-switch button {
-  margin: 0 5px;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #2563eb;
-  color: white;
-  font-weight: bold;
-}
-
-main {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 0 15px;
-}
-
-.deal-card {
-  background: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.deal-card h2 {
-  margin-top: 0;
-  color: #111827;
-}
-
-.store-name {
-  font-weight: bold;
-}
-
-.deal-meta {
-  margin: 10px 0;
-  font-size: 0.9rem;
-}
-
-.deal-card button {
-  padding: 10px 16px;
-  border: none;
-  background: #16a34a;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.visit-store {
-  text-decoration: none;
-  padding: 10px 16px;
-  background: #2563eb;
-  color: white;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  background: #e5e7eb;
-}
-
-
