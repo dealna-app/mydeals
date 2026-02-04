@@ -1,37 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
-  background: #f3f4f6;
+  background: #f4f6f8;
+  color: #111;
 }
 
 header {
-  background: #111827;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
   color: white;
-  padding: 20px;
+  padding: 22px;
   text-align: center;
 }
 
+header h1 {
+  margin: 0;
+}
+
 .lang-switch button {
-  margin: 5px;
-  padding: 6px 12px;
-  border-radius: 6px;
+  margin: 8px 4px 0;
+  padding: 6px 10px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+}
+
+main {
+  padding: 12px;
+}
+
+#searchInput {
+  width: 100%;
+  max-width: 420px;
+  margin: 15px auto;
+  display: block;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
 }
 
 .filters {
   text-align: center;
-  margin: 20px 0;
+  margin-bottom: 15px;
 }
 
 .filters button {
-  margin: 5px;
+  margin: 4px;
   padding: 8px 14px;
-  border-radius: 20px;
+  border-radius: 999px;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
   background: #e5e7eb;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .filters button:hover {
@@ -41,36 +65,53 @@ header {
 
 .deal-card {
   background: white;
-  margin: 15px auto;
-  padding: 20px;
+  margin: 14px auto;
+  padding: 18px;
   max-width: 520px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.deal-card h2 {
+  margin-top: 0;
+}
+
+.store {
+  font-weight: bold;
+}
+
+.meta {
+  color: #555;
+  font-size: 14px;
 }
 
 .deal-card button {
-  margin-top: 8px;
-  margin-right: 5px;
-  padding: 8px 12px;
-  border-radius: 6px;
+  margin-top: 10px;
+  margin-right: 6px;
+  padding: 10px 14px;
+  border-radius: 10px;
   border: none;
-  cursor: pointer;
   background: #2563eb;
   color: white;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.deal-card button:active {
+  transform: scale(0.96);
 }
 
 .visit-store {
   display: inline-block;
-  margin-left: 8px;
+  margin-top: 12px;
+  text-decoration: none;
   font-weight: bold;
   color: #2563eb;
-  text-decoration: none;
 }
 
 footer {
-  margin-top: 30px;
   text-align: center;
-  padding: 15px;
-  background: #111827;
-  color: white;
+  padding: 18px;
+  font-size: 14px;
+  color: #555;
 }
