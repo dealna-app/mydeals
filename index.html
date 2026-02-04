@@ -3,86 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <title>MyDeals.ma | Best Deals in Morocco</title>
+  <meta name="description" content="Best promo codes and deals in Morocco for Jumia, Glovo, Decathlon and more.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>MyDeals.ma</h1>
+  <h1>💸 MyDeals.ma</h1>
   <p id="subtitle">Best Deals & Promo Codes in Morocco</p>
 
   <div class="lang-switch">
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('ar')">العربية</button>
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ar')">AR</button>
   </div>
 </header>
 
-<main id="deals">
+<main>
+
+  <!-- SEARCH -->
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="🔍 Search deals or stores..."
+    onkeyup="searchDeals()"
+  />
 
   <!-- FILTERS -->
   <div class="filters">
     <button onclick="filterDeals('all')">All</button>
-    <button onclick="filterDeals('food')">Food</button>
-    <button onclick="filterDeals('fashion')">Fashion</button>
-    <button onclick="filterDeals('electronics')">Electronics</button>
-    <button onclick="filterDeals('local')">Local</button>
+    <button onclick="filterDeals('food')">🍔 Food</button>
+    <button onclick="filterDeals('fashion')">👕 Fashion</button>
+    <button onclick="filterDeals('electronics')">💻 Electronics</button>
+    <button onclick="filterDeals('local')">🇲🇦 Local</button>
   </div>
 
   <!-- DEAL 1 -->
   <div class="deal-card" data-category="electronics">
-    <h2>Jumia Promo Code – 20% OFF</h2>
-    <p><strong>Store:</strong> Jumia Morocco</p>
+    <h2>🔥 Jumia Promo Code – 20% OFF</h2>
+    <p class="store">Jumia Morocco</p>
     <p>Save 20% on electronics, fashion, and home items.</p>
-    <p>✅ Verified today<br>⏰ Expires: 31 March 2026</p>
+    <p class="meta">✅ Verified today · ⏰ Ends soon</p>
 
     <button onclick="copyCode('JUMIA20')">Copy Code</button>
     <button onclick="shareWhatsApp('Jumia Promo Code – 20% OFF','JUMIA20')">
-      Share on WhatsApp
+      Share WhatsApp
     </button>
 
     <a href="https://www.jumia.ma" target="_blank" class="visit-store">
-      Visit Store
+      Visit Store →
     </a>
   </div>
 
   <!-- DEAL 2 -->
   <div class="deal-card" data-category="food">
-    <h2>Glovo Discount – 15% OFF</h2>
-    <p><strong>Store:</strong> Glovo Morocco</p>
-    <p>Get 15% off your next food delivery.</p>
-    <p>✅ Verified today<br>⏰ Limited time</p>
+    <h2>🍕 Glovo Discount – 15% OFF</h2>
+    <p class="store">Glovo Morocco</p>
+    <p>15% off food delivery from your favorite restaurants.</p>
+    <p class="meta">✅ Verified today</p>
 
     <button onclick="copyCode('GLOVO15')">Copy Code</button>
     <button onclick="shareWhatsApp('Glovo Discount – 15% OFF','GLOVO15')">
-      Share on WhatsApp
+      Share WhatsApp
     </button>
 
     <a href="https://glovoapp.com" target="_blank" class="visit-store">
-      Visit Store
+      Visit Store →
     </a>
   </div>
 
   <!-- DEAL 3 -->
   <div class="deal-card" data-category="fashion">
-    <h2>Decathlon Sale – 10% OFF</h2>
-    <p><strong>Store:</strong> Decathlon</p>
+    <h2>🏃 Decathlon Sale – 10% OFF</h2>
+    <p class="store">Decathlon Morocco</p>
     <p>Save on sportswear and equipment.</p>
-    <p>✅ Verified today<br>⏰ Ends soon</p>
+    <p class="meta">✅ Verified today</p>
 
     <button onclick="copyCode('SPORT10')">Copy Code</button>
     <button onclick="shareWhatsApp('Decathlon Sale – 10% OFF','SPORT10')">
-      Share on WhatsApp
+      Share WhatsApp
     </button>
 
     <a href="https://www.decathlon.ma" target="_blank" class="visit-store">
-      Visit Store
+      Visit Store →
     </a>
   </div>
 
 </main>
 
 <footer>
-  <p>© 2026 MyDeals.ma — All rights reserved</p>
+  <p>© 2026 MyDeals.ma · Verified deals daily 🇲🇦</p>
 </footer>
 
 <script src="script.js"></script>
