@@ -15,6 +15,20 @@ function filterDeals(category) {
   });
 }
 
+function shareWhatsApp(title, code) {
+  const message =
+    `${title}\n` +
+    `Promo code: ${code}\n\n` +
+    `More deals here 👇\n` +
+    window.location.href;
+
+  const url =
+    "https://wa.me/?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
 function setLanguage(lang) {
   if (lang === "ar") {
     document.documentElement.lang = "ar";
