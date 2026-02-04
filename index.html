@@ -2,86 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dealna.ma | Best Deals in Morocco</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Verified deals and promo codes in Morocco. Save money on Jumia, Glovo, Marjane, Decathlon and local brands.">
+  <title>MyDeals.ma | Best Deals in Morocco</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- WEBSITE STRUCTURED DATA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Dealna.ma",
-    "url": "https://YOURUSERNAME.github.io/dealna/",
-    "description": "Verified deals and promo codes in Morocco",
-    "inLanguage": ["en", "ar"]
-  }
-  </script>
 </head>
-
 <body>
 
-  <header>
-    <h1>Dealna.ma</h1>
-    <p id="subtitle">Best Deals & Promo Codes in Morocco 🇲🇦</p>
+<header>
+  <h1>MyDeals.ma</h1>
+  <p id="subtitle">Best Deals & Promo Codes in Morocco</p>
 
-    <div class="lang-switch">
-      <button onclick="setLanguage('en')">English</button>
-      <button onclick="setLanguage('ar')">العربية</button>
-    </div>
-  </header>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('ar')">العربية</button>
+  </div>
+</header>
 
-  <main id="deals">
+<main id="deals">
 
-    <!-- DEAL CARD -->
-    <div class="deal-card">
-      <h2>Jumia Promo Code – 20% OFF</h2>
+  <!-- FILTER BUTTONS -->
+  <div class="filters">
+    <button onclick="filterDeals('all')">All</button>
+    <button onclick="filterDeals('food')">Food</button>
+    <button onclick="filterDeals('fashion')">Fashion</button>
+    <button onclick="filterDeals('electronics')">Electronics</button>
+    <button onclick="filterDeals('local')">Local</button>
+  </div>
 
-      <p class="store-name">Store: <strong>Jumia Morocco</strong></p>
+  <!-- DEAL 1 -->
+  <div class="deal-card" data-category="electronics">
+    <h2>Jumia Promo Code – 20% OFF</h2>
+    <p class="store-name"><strong>Store:</strong> Jumia Morocco</p>
+    <p class="deal-desc">
+      Save 20% on electronics, fashion, and home products.
+    </p>
+    <p class="deal-meta">
+      ✅ Verified today<br>
+      ⏰ Expires: 31 March 2026
+    </p>
+    <button onclick="copyCode('JUMIA20')">Copy Code</button>
+    <a href="https://www.jumia.ma" target="_blank" class="visit-store">
+      Visit Store
+    </a>
+  </div>
 
-      <p class="deal-desc">
-        Save 20% on selected products on Jumia Morocco.
-        Valid on fashion, electronics, and home items.
-      </p>
+  <!-- DEAL 2 -->
+  <div class="deal-card" data-category="food">
+    <h2>Glovo Discount – 15% OFF</h2>
+    <p class="store-name"><strong>Store:</strong> Glovo Morocco</p>
+    <p class="deal-desc">
+      Get 15% off your next food delivery.
+    </p>
+    <p class="deal-meta">
+      ✅ Verified today<br>
+      ⏰ Limited time
+    </p>
+    <button onclick="copyCode('GLOVO15')">Copy Code</button>
+    <a href="https://glovoapp.com" target="_blank" class="visit-store">
+      Visit Store
+    </a>
+  </div>
 
-      <p class="deal-meta">
-        ✅ Verified today <br>
-        ⏰ Expires: 31 March 2026
-      </p>
+  <!-- DEAL 3 -->
+  <div class="deal-card" data-category="fashion">
+    <h2>Decathlon Sale – 10% OFF</h2>
+    <p class="store-name"><strong>Store:</strong> Decathlon</p>
+    <p class="deal-desc">
+      Save on sportswear and equipment.
+    </p>
+    <p class="deal-meta">
+      ✅ Verified today<br>
+      ⏰ Ends soon
+    </p>
+    <button onclick="copyCode('SPORT10')">Copy Code</button>
+    <a href="https://www.decathlon.ma" target="_blank" class="visit-store">
+      Visit Store
+    </a>
+  </div>
 
-      <button onclick="copyCode('JUMIA20')">Copy Code</button>
+</main>
 
-      <a href="https://www.jumia.ma" target="_blank" class="visit-store">
-        Visit Store
-      </a>
-    </div>
+<footer>
+  <p>© 2026 MyDeals.ma — All rights reserved</p>
+</footer>
 
-    <!-- OFFER STRUCTURED DATA -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Offer",
-      "name": "Jumia Promo Code – 20% OFF",
-      "description": "Save 20% on selected products on Jumia Morocco.",
-      "url": "https://www.jumia.ma",
-      "priceCurrency": "MAD",
-      "availability": "https://schema.org/InStock",
-      "validThrough": "2026-03-31",
-      "seller": {
-        "@type": "Organization",
-        "name": "Jumia Morocco"
-      }
-    }
-    </script>
-
-  </main>
-
-  <footer>
-    <p>© 2026 Dealna.ma — All rights reserved</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
