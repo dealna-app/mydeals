@@ -14,9 +14,9 @@ header {
 .lang-switch button {
   margin: 5px;
   padding: 6px 12px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
-  border-radius: 6px;
 }
 
 .filters {
@@ -43,33 +43,32 @@ header {
   background: white;
   margin: 15px auto;
   padding: 20px;
-  max-width: 500px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 520px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.deal-card h2 {
-  margin-top: 0;
-}
-
-button {
+.deal-card button {
+  margin-top: 8px;
+  margin-right: 5px;
   padding: 8px 12px;
+  border-radius: 6px;
   border: none;
+  cursor: pointer;
   background: #2563eb;
   color: white;
-  cursor: pointer;
-  border-radius: 6px;
 }
 
 .visit-store {
   display: inline-block;
-  margin-left: 10px;
-  text-decoration: none;
-  color: #2563eb;
+  margin-left: 8px;
   font-weight: bold;
+  color: #2563eb;
+  text-decoration: none;
 }
 
 footer {
+  margin-top: 30px;
   text-align: center;
   padding: 15px;
   background: #111827;
