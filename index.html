@@ -2,14 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MyDeals.ma | Best Deals in Morocco</title>
+  <title>Dealna.ma | Best Deals in Morocco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Verified deals and promo codes in Morocco. Save money on Jumia, Glovo, Marjane, Decathlon and local brands.">
   <link rel="stylesheet" href="style.css">
+
+  <!-- WEBSITE STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Dealna.ma",
+    "url": "https://YOURUSERNAME.github.io/dealna/",
+    "description": "Verified deals and promo codes in Morocco",
+    "inLanguage": ["en", "ar"]
+  }
+  </script>
 </head>
+
 <body>
 
   <header>
-    <h1>MyDeals.ma</h1>
-    <p id="subtitle">Best Deals & Promo Codes in Morocco</p>
+    <h1>Dealna.ma</h1>
+    <p id="subtitle">Best Deals & Promo Codes in Morocco 🇲🇦</p>
 
     <div class="lang-switch">
       <button onclick="setLanguage('en')">English</button>
@@ -17,12 +32,56 @@
     </div>
   </header>
 
-  <main id="deals"></main>
+  <main id="deals">
+
+    <!-- DEAL CARD -->
+    <div class="deal-card">
+      <h2>Jumia Promo Code – 20% OFF</h2>
+
+      <p class="store-name">Store: <strong>Jumia Morocco</strong></p>
+
+      <p class="deal-desc">
+        Save 20% on selected products on Jumia Morocco.
+        Valid on fashion, electronics, and home items.
+      </p>
+
+      <p class="deal-meta">
+        ✅ Verified today <br>
+        ⏰ Expires: 31 March 2026
+      </p>
+
+      <button onclick="copyCode('JUMIA20')">Copy Code</button>
+
+      <a href="https://www.jumia.ma" target="_blank" class="visit-store">
+        Visit Store
+      </a>
+    </div>
+
+    <!-- OFFER STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Offer",
+      "name": "Jumia Promo Code – 20% OFF",
+      "description": "Save 20% on selected products on Jumia Morocco.",
+      "url": "https://www.jumia.ma",
+      "priceCurrency": "MAD",
+      "availability": "https://schema.org/InStock",
+      "validThrough": "2026-03-31",
+      "seller": {
+        "@type": "Organization",
+        "name": "Jumia Morocco"
+      }
+    }
+    </script>
+
+  </main>
 
   <footer>
-    <p>© 2026 MyDeals.ma</p>
+    <p>© 2026 Dealna.ma — All rights reserved</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
