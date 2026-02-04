@@ -1,44 +1,41 @@
 function copyCode(code) {
   navigator.clipboard.writeText(code);
-  alert("Code copied: " + code);
+  alert("Copied: " + code);
 }
 
 function filterDeals(category) {
-  const deals = document.querySelectorAll(".deal-card");
+  document.querySelectorAll(".deal-card").forEach(deal => {
+    deal.style.display =
+      category === "all" || deal.dataset.category === category
+        ? "block"
+        : "none";
+  });
+}
 
-  deals.forEach(deal => {
-    if (category === "all" || deal.dataset.category === category) {
-      deal.style.display = "block";
-    } else {
-      deal.style.display = "none";
-    }
+function searchDeals() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".deal-card").forEach(deal => {
+    deal.style.display = deal.innerText.toLowerCase().includes(query)
+      ? "block"
+      : "none";
   });
 }
 
 function shareWhatsApp(title, code) {
-  const message =
-    `${title}\n` +
-    `Promo code: ${code}\n\n` +
-    `More deals here 👇\n` +
+  const text =
+    `${title}\nCode: ${code}\n\nMore deals 👇\n` +
     window.location.href;
 
-  const url =
-    "https://wa.me/?text=" +
-    encodeURIComponent(message);
-
-  window.open(url, "_blank");
+  window.open(
+    "https://wa.me/?text=" + encodeURIComponent(text),
+    "_blank"
+  );
 }
 
 function setLanguage(lang) {
-  if (lang === "ar") {
-    document.documentElement.lang = "ar";
-    document.body.dir = "rtl";
-    document.getElementById("subtitle").innerText =
-      "أفضل العروض و أكواد التخفيض في المغرب";
-  } else {
-    document.documentElement.lang = "en";
-    document.body.dir = "ltr";
-    document.getElementById("subtitle").innerText =
-      "Best Deals & Promo Codes in Morocco";
-  }
+  document.body.dir = lang === "ar" ? "rtl" : "ltr";
+  document.getElementById("subtitle").innerText =
+    lang === "ar"
+      ? "أفضل العروض و أكواد التخفيض في المغرب"
+      : "Best Deals & Promo Codes in Morocco";
 }
