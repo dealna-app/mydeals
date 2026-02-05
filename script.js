@@ -1,106 +1,48 @@
-* {
-  box-sizing: border-box;
+function copyCode(code) {
+  navigator.clipboard.writeText(code);
+  alert("Copied: " + code);
 }
 
-body {
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  background: #f4f6f8;
-  color: #111;
+function filterDeals(category) {
+  document.querySelectorAll(".deal-card").forEach(deal => {
+    deal.style.display =
+      category === "all" || deal.dataset.category === category
+        ? "block"
+        : "none";
+  });
 }
 
-header {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: white;
-  padding: 22px;
-  text-align: center;
+function searchDeals() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+
+  document.querySelectorAll(".deal-card").forEach(deal => {
+    const text =
+      deal.querySelector("h2").innerText.toLowerCase() +
+      deal.querySelector(".store").innerText.toLowerCase();
+
+    deal.style.display = text.includes(query)
+      ? "block"
+      : "none";
+  });
 }
 
-.lang-switch button {
-  margin: 6px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+function shareWhatsApp(title, code) {
+  const text =
+    `${title}\nCode: ${code}\n\nMore deals 👇\n` +
+    window.location.href;
+
+  window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
 }
 
-main {
-  padding: 12px;
-}
+function setLanguage(lang) {
+  document.body.dir = lang === "ar" ? "rtl" : "ltr";
 
-#searchInput {
-  width: 100%;
-  max-width: 420px;
-  margin: 15px auto;
-  display: block;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-}
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.innerText = el.dataset[lang];
+  });
 
-.filters {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.filters button {
-  margin: 4px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: none;
-  background: #e5e7eb;
-  font-weight: 600;
-}
-
-.filters button:hover {
-  background: #2563eb;
-  color: white;
-}
-
-.deal-card {
-  background: white;
-  margin: 14px auto;
-  padding: 18px;
-  max-width: 520px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.store {
-  font-weight: bold;
-}
-
-.meta {
-  font-size: 14px;
-  color: #555;
-}
-
-.deal-card button {
-  margin-top: 10px;
-  margin-right: 6px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  cursor: pointer;
-}
-
-.deal-card button:active {
-  transform: scale(0.96);
-}
-
-.visit-store {
-  display: inline-block;
-  margin-top: 12px;
-  font-weight: bold;
-  color: #2563eb;
-  text-decoration: none;
-}
-
-footer {
-  text-align: center;
-  padding: 18px;
-  font-size: 14px;
-  color: #555;
+  document.getElementById("subtitle").innerText =
+    lang === "ar"
+      ? "أفضل العروض و أكواد التخفيض في المغرب"
+      : "Best Deals & Promo Codes in Morocco";
 }
