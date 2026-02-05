@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, sans-serif;
   margin: 0;
   background: #f4f6f8;
   color: #111;
@@ -16,12 +16,8 @@ header {
   text-align: center;
 }
 
-header h1 {
-  margin: 0;
-}
-
 .lang-switch button {
-  margin: 8px 4px 0;
+  margin: 6px;
   padding: 6px 10px;
   border: none;
   border-radius: 8px;
@@ -40,7 +36,6 @@ main {
   padding: 12px;
   border-radius: 12px;
   border: 1px solid #ccc;
-  font-size: 16px;
 }
 
 .filters {
@@ -55,7 +50,6 @@ main {
   border: none;
   background: #e5e7eb;
   font-weight: 600;
-  cursor: pointer;
 }
 
 .filters button:hover {
@@ -72,17 +66,13 @@ main {
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-.deal-card h2 {
-  margin-top: 0;
-}
-
 .store {
   font-weight: bold;
 }
 
 .meta {
-  color: #555;
   font-size: 14px;
+  color: #555;
 }
 
 .deal-card button {
@@ -94,7 +84,6 @@ main {
   background: #2563eb;
   color: white;
   cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .deal-card button:active {
@@ -104,9 +93,9 @@ main {
 .visit-store {
   display: inline-block;
   margin-top: 12px;
-  text-decoration: none;
   font-weight: bold;
   color: #2563eb;
+  text-decoration: none;
 }
 
 footer {
