@@ -1,0 +1,28 @@
+[
+  {
+    "title_en": "🔥 Jumia Promo Code – 20% OFF",
+    "title_ar": "🔥 كود تخفيض جوميا – خصم 20%",
+    "store_en": "Jumia Morocco",
+    "store_ar": "جوميا المغرب",
+    "desc_en": "Save 20% on electronics, fashion, and home items.",
+    "desc_ar": "وفر 20٪ على الإلكترونيات والملابس ومنتجات المنزل.",
+    "code": "JUMIA20",
+    "category": "electronics",
+    "link": "https://www.jumia.ma",
+    "image": "https://via.placeholder.com/100x60?text=Jumia",
+    "expires": "2026-03-31"
+  },
+  {
+    "title_en": "🍕 Glovo Discount – 15% OFF",
+    "title_ar": "🍕 خصم جلوفو – 15%",
+    "store_en": "Glovo Morocco",
+    "store_ar": "جلوفو المغرب",
+    "desc_en": "15% off food delivery.",
+    "desc_ar": "خصم 15٪ على توصيل الطعام.",
+    "code": "GLOVO15",
+    "category": "food",
+    "link": "https://glovoapp.com",
+    "image": "https://via.placeholder.com/100x60?text=Glovo",
+    "expires": "2026-03-31"
+  }
+]
