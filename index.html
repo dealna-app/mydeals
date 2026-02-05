@@ -5,6 +5,21 @@
   <title>MyDeals.ma | Best Deals in Morocco</title>
   <meta name="description" content="Best promo codes and deals in Morocco for Jumia, Glovo, Decathlon and more.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Best Deals in Morocco",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Jumia Promo Code – 20% OFF", "url": "https://www.jumia.ma" },
+      { "@type": "Offer", "name": "Glovo Discount – 15% OFF", "url": "https://glovoapp.com" },
+      { "@type": "Offer", "name": "Decathlon Sale – 10% OFF", "url": "https://www.decathlon.ma" }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,10 +55,21 @@
 
   <!-- DEAL 1 -->
   <div class="deal-card" data-category="electronics">
-    <h2>🔥 Jumia Promo Code – 20% OFF</h2>
-    <p class="store">Jumia Morocco</p>
-    <p>Save 20% on electronics, fashion, and home items.</p>
-    <p class="meta">✅ Verified today · ⏰ Ends soon</p>
+    <h2 data-en="🔥 Jumia Promo Code – 20% OFF"
+        data-ar="🔥 كود تخفيض جوميا – خصم 20%">
+      🔥 Jumia Promo Code – 20% OFF
+    </h2>
+
+    <p class="store" data-en="Jumia Morocco" data-ar="جوميا المغرب">
+      Jumia Morocco
+    </p>
+
+    <p data-en="Save 20% on electronics, fashion, and home items."
+       data-ar="وفر 20٪ على الإلكترونيات والملابس ومنتجات المنزل.">
+      Save 20% on electronics, fashion, and home items.
+    </p>
+
+    <p class="meta">✅ Verified today</p>
 
     <button onclick="copyCode('JUMIA20')">Copy Code</button>
     <button onclick="shareWhatsApp('Jumia Promo Code – 20% OFF','JUMIA20')">
@@ -57,9 +83,20 @@
 
   <!-- DEAL 2 -->
   <div class="deal-card" data-category="food">
-    <h2>🍕 Glovo Discount – 15% OFF</h2>
-    <p class="store">Glovo Morocco</p>
-    <p>15% off food delivery from your favorite restaurants.</p>
+    <h2 data-en="🍕 Glovo Discount – 15% OFF"
+        data-ar="🍕 خصم جلوفو – 15%">
+      🍕 Glovo Discount – 15% OFF
+    </h2>
+
+    <p class="store" data-en="Glovo Morocco" data-ar="جلوفو المغرب">
+      Glovo Morocco
+    </p>
+
+    <p data-en="15% off food delivery."
+       data-ar="خصم 15٪ على توصيل الطعام.">
+      15% off food delivery.
+    </p>
+
     <p class="meta">✅ Verified today</p>
 
     <button onclick="copyCode('GLOVO15')">Copy Code</button>
@@ -68,23 +105,6 @@
     </button>
 
     <a href="https://glovoapp.com" target="_blank" class="visit-store">
-      Visit Store →
-    </a>
-  </div>
-
-  <!-- DEAL 3 -->
-  <div class="deal-card" data-category="fashion">
-    <h2>🏃 Decathlon Sale – 10% OFF</h2>
-    <p class="store">Decathlon Morocco</p>
-    <p>Save on sportswear and equipment.</p>
-    <p class="meta">✅ Verified today</p>
-
-    <button onclick="copyCode('SPORT10')">Copy Code</button>
-    <button onclick="shareWhatsApp('Decathlon Sale – 10% OFF','SPORT10')">
-      Share WhatsApp
-    </button>
-
-    <a href="https://www.decathlon.ma" target="_blank" class="visit-store">
       Visit Store →
     </a>
   </div>
