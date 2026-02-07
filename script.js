@@ -1,62 +1,61 @@
-let currentLang = 'en';
 let deals = [];
+let currentLang = "en";
+let currentFilter = "all";
 
-async function loadDeals() {
-  const res = await fetch('deals.json');
-  deals = await res.json();
-  renderDeals();
-}
+fetch("deals.json")
+  .then(res => res.json())
+  .then(data => {
+    deals = data;
+    renderDeals();
+  });
 
-function renderDeals(filter='all') {
-  const container = document.getElementById('dealsContainer');
-  container.innerHTML = '';
+function renderDeals() {
+  const container = document.getElementById("deals");
+  container.innerHTML = "";
+
+  const searchText = document.getElementById("search").value.toLowerCase();
+
   deals.forEach(deal => {
-    if(filter !== 'all' && deal.category !== filter) return;
+    if (
+      (currentFilter === "all" || deal.category === currentFilter) &&
+      (deal.title_en.toLowerCase().includes(searchText) ||
+       deal.store_en.toLowerCase().includes(searchText))
+    ) {
+      const card = document.createElement("div");
+      card.className = "deal-card";
 
-    const dealCard = document.createElement('div');
-    dealCard.className = 'deal-card';
-
-    dealCard.innerHTML = `
-      <img src="${deal.image}" alt="${deal['store_'+currentLang]}">
-      <div class="deal-details">
-        <h2 data-en="${deal.title_en}" data-ar="${deal.title_ar}">${deal['title_'+currentLang]}</h2>
-        <p class="store" data-en="${deal.store_en}" data-ar="${deal.store_ar}">${deal['store_'+currentLang]}</p>
-        <p data-en="${deal.desc_en}" data-ar="${deal.desc_ar}">${deal['desc_'+currentLang]}</p>
-        <p class="meta">✅ Verified · Expires: ${deal.expires}</p>
+      card.innerHTML = `
+        <img src="${deal.image}" alt="${deal.store_en}">
+        <h2>${currentLang === "en" ? deal.title_en : deal.title_ar}</h2>
+        <p class="store">${currentLang === "en" ? deal.store_en : deal.store_ar}</p>
+        <p>${currentLang === "en" ? deal.desc_en : deal.desc_ar}</p>
+        ${deal.code ? `<p><strong>Code:</strong> ${deal.code}</p>` : `<p><strong>No code needed</strong></p>`}
+        <p class="expires">Expires: ${deal.expires}</p>
         <button onclick="copyCode('${deal.code}')">Copy Code</button>
-        <button onclick="shareWhatsApp('${deal['title_'+currentLang]}','${deal.code}')">Share WhatsApp</button>
-        <a href="${deal.link}" target="_blank" class="visit-store">Visit Store →</a>
-      </div>
-    `;
-    container.appendChild(dealCard);
+        <a href="${deal.link}" target="_blank">Visit Store</a>
+      `;
+      container.appendChild(card);
+    }
   });
 }
 
 function copyCode(code) {
+  if (!code) return alert("No code needed for this deal");
   navigator.clipboard.writeText(code);
-  alert("Copied: "+code);
+  alert("Code copied!");
 }
 
-function shareWhatsApp(title, code) {
-  const text = `${title}\nCode: ${code}\n\nMore deals 👇\n${window.location.href}`;
-  window.open("https://wa.me/?text="+encodeURIComponent(text), "_blank");
+function filterDeals(cat) {
+  currentFilter = cat;
+  renderDeals();
 }
-
-function filterDeals(category) { renderDeals(category); searchDeals(); }
 
 function searchDeals() {
-  const query = document.getElementById('searchInput').value.toLowerCase();
-  document.querySelectorAll('.deal-card').forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(query) ? 'flex' : 'none';
-  });
+  renderDeals();
 }
 
 function setLanguage(lang) {
   currentLang = lang;
-  document.body.dir = lang==='ar'?'rtl':'ltr';
-  document.getElementById('subtitle').innerText = lang==='ar'?"أفضل العروض و أكواد التخفيض في المغرب":"Best Deals & Promo Codes in Morocco";
+  document.body.dir = lang === "ar" ? "rtl" : "ltr";
   renderDeals();
 }
-
-window.onload = loadDeals;
