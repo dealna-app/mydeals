@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <title>Dealna | Best Deals in Morocco</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
 
 <header>
-  <h1>Dealna 🇲🇦</h1>
-  <p class="tagline">Verified promo codes & deals in Morocco</p>
+  <h1>Dealna</h1>
+  <p class="tagline" id="subtitle">Best Deals & Promo Codes in Morocco</p>
 
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
@@ -19,9 +21,8 @@
   </div>
 
   <input
-    type="text"
     id="search"
-    placeholder="Search store or deal..."
+    placeholder="Search deals or stores..."
     onkeyup="searchDeals()"
   />
 
@@ -37,7 +38,7 @@
 <main id="deals"></main>
 
 <footer>
-  <p>© 2026 Dealna — Built for Morocco</p>
+  © 2026 Dealna – Morocco
 </footer>
 
 <script src="script.js"></script>
