@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel – Dealna</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Dealna Admin</h1>
+  <p>Add & manage deals</p>
+</header>
+
+<div class="deal-card">
+  <h3>Add Deal</h3>
+  <input id="title" placeholder="Title">
+  <input id="description" placeholder="Description">
+  <input id="code" placeholder="Promo Code">
+  <input id="category" placeholder="Category (food, fashion...)">
+  <input id="link" placeholder="Store Link">
+  <button onclick="addDeal()">Add Deal</button>
+</div>
+
+<h3>Current Deals</h3>
+<div id="admin-deals"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
