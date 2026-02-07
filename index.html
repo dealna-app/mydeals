@@ -1,44 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Dealna | Best Deals in Morocco</title>
+  <meta charset="UTF-8">
+  <title>Dealna – Save Money Online in Morocco</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
+
+  <!-- Google Analytics (replace later) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  -->
 </head>
 
 <body>
 
 <header>
-  <h1>Dealna</h1>
-  <p class="tagline" id="subtitle">Best Deals & Promo Codes in Morocco</p>
-
-  <div class="lang-switch">
-    <button onclick="setLanguage('en')">EN</button>
-    <button onclick="setLanguage('ar')">AR</button>
-  </div>
-
-  <input
-    id="search"
-    placeholder="Search deals or stores..."
-    onkeyup="searchDeals()"
-  />
-
-  <div class="filters">
-    <button onclick="filterDeals('all')">All</button>
-    <button onclick="filterDeals('food')">Food</button>
-    <button onclick="filterDeals('fashion')">Fashion</button>
-    <button onclick="filterDeals('electronics')">Electronics</button>
-    <button onclick="filterDeals('local')">Local</button>
-  </div>
+  <h1>Dealna 🇲🇦</h1>
+  <p>Verified promo codes & deals for Morocco</p>
 </header>
 
-<main id="deals"></main>
+<section class="hero">
+  <h2>Save money every time you shop online</h2>
+  <p>
+    Dealna collects the best promo codes and online deals from Moroccan and
+    international stores — all verified, all free.
+  </p>
+
+  <div class="hero-features">
+    <span>✅ Verified deals</span>
+    <span>🇲🇦 Moroccan brands</span>
+    <span>🚫 No fake codes</span>
+  </div>
+</section>
+
+<p class="disclaimer">
+  💡 Dealna may earn a commission when you use some links — at no extra cost to you.
+</p>
+
+<input
+  type="text"
+  id="search"
+  placeholder="Search deals (Jumia, food, fashion...)"
+  onkeyup="searchDeals()"
+/>
+
+<div class="filters">
+  <button onclick="filterDeals('all')">All</button>
+  <button onclick="filterDeals('food')">Food</button>
+  <button onclick="filterDeals('fashion')">Fashion</button>
+  <button onclick="filterDeals('electronics')">Electronics</button>
+  <button onclick="filterDeals('local')">Local</button>
+</div>
+
+<main id="deals">
+
+  <div class="deal-card" data-category="electronics">
+    <h3>Jumia – 20% OFF</h3>
+    <p>Save on electronics, phones & accessories.</p>
+    <span class="code">JUMIA20</span>
+    <a href="https://www.jumia.ma" target="_blank">Go to store</a>
+  </div>
+
+  <div class="deal-card" data-category="fashion">
+    <h3>Shein – 15% OFF</h3>
+    <p>Trending fashion shipped to Morocco.</p>
+    <span class="code">SHEIN15</span>
+    <a href="https://www.shein.com" target="_blank">Go to store</a>
+  </div>
+
+  <div class="deal-card" data-category="food">
+    <h3>Glovo – Free Delivery</h3>
+    <p>Order food with no delivery fees.</p>
+    <span class="code">GLOVOFREE</span>
+    <a href="https://glovoapp.com" target="_blank">Go to store</a>
+  </div>
+
+  <div class="deal-card" data-category="local">
+    <h3>Local Gym – 10% OFF</h3>
+    <p>Discount on monthly gym membership.</p>
+    <span class="code">FIT10</span>
+    <a href="#" target="_blank">Go to store</a>
+  </div>
+
+</main>
 
 <footer>
-  © 2026 Dealna – Morocco
+  <p>© 2026 Dealna – Built in Morocco 🇲🇦</p>
+  <p>
+    <a href="#">About</a> |
+    <a href="#">Privacy</a> |
+    <a href="#">Contact</a>
+  </p>
 </footer>
 
 <script src="script.js"></script>
