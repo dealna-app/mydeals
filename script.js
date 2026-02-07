@@ -1,61 +1,82 @@
 let deals = [];
 let currentLang = "en";
-let currentFilter = "all";
+let currentCategory = "all";
 
 fetch("deals.json")
   .then(res => res.json())
   .then(data => {
     deals = data;
-    renderDeals();
+    renderDeals(deals);
   });
-
-function renderDeals() {
-  const container = document.getElementById("deals");
-  container.innerHTML = "";
-
-  const searchText = document.getElementById("search").value.toLowerCase();
-
-  deals.forEach(deal => {
-    if (
-      (currentFilter === "all" || deal.category === currentFilter) &&
-      (deal.title_en.toLowerCase().includes(searchText) ||
-       deal.store_en.toLowerCase().includes(searchText))
-    ) {
-      const card = document.createElement("div");
-      card.className = "deal-card";
-
-      card.innerHTML = `
-        <img src="${deal.image}" alt="${deal.store_en}">
-        <h2>${currentLang === "en" ? deal.title_en : deal.title_ar}</h2>
-        <p class="store">${currentLang === "en" ? deal.store_en : deal.store_ar}</p>
-        <p>${currentLang === "en" ? deal.desc_en : deal.desc_ar}</p>
-        ${deal.code ? `<p><strong>Code:</strong> ${deal.code}</p>` : `<p><strong>No code needed</strong></p>`}
-        <p class="expires">Expires: ${deal.expires}</p>
-        <button onclick="copyCode('${deal.code}')">Copy Code</button>
-        <a href="${deal.link}" target="_blank">Visit Store</a>
-      `;
-      container.appendChild(card);
-    }
-  });
-}
-
-function copyCode(code) {
-  if (!code) return alert("No code needed for this deal");
-  navigator.clipboard.writeText(code);
-  alert("Code copied!");
-}
-
-function filterDeals(cat) {
-  currentFilter = cat;
-  renderDeals();
-}
-
-function searchDeals() {
-  renderDeals();
-}
 
 function setLanguage(lang) {
   currentLang = lang;
-  document.body.dir = lang === "ar" ? "rtl" : "ltr";
-  renderDeals();
+  document.getElementById("subtitle").innerText =
+    lang === "ar"
+      ? "أفضل العروض وكوبونات الخصم في المغرب"
+      : "Best Deals & Promo Codes in Morocco";
+  renderDeals(deals);
+}
+
+function filterDeals(category) {
+  currentCategory = category;
+  searchDeals();
+}
+
+function searchDeals() {
+  const q = document.getElementById("search").value.toLowerCase();
+  let filtered = deals.filter(d =>
+    (currentCategory === "all" || d.category === currentCategory) &&
+    (
+      d.title_en.toLowerCase().includes(q) ||
+      d.store_en.toLowerCase().includes(q) ||
+      d.desc_en.toLowerCase().includes(q)
+    )
+  );
+  renderDeals(filtered);
+}
+
+function isExpired(date) {
+  return new Date(date) < new Date();
+}
+
+function copyCode(code) {
+  if (!code) return alert("No promo code needed");
+  navigator.clipboard.writeText(code);
+  alert("Promo code copied ✅");
+}
+
+function toggleFavorite(title) {
+  let favs = JSON.parse(localStorage.getItem("favorites")) || [];
+  favs = favs.includes(title)
+    ? favs.filter(t => t !== title)
+    : [...favs, title];
+  localStorage.setItem("favorites", JSON.stringify(favs));
+  alert("Favorites updated ❤️");
+}
+
+function renderDeals(list) {
+  const container = document.getElementById("deals");
+  container.innerHTML = "";
+
+  list.forEach(d => {
+    const expired = isExpired(d.expires);
+    const card = document.createElement("div");
+    card.className = "deal-card";
+    if (expired) card.style.opacity = "0.4";
+
+    card.innerHTML = `
+      ${d.popular ? `<div class="badge">🔥 Popular</div>` : ""}
+      <img src="${d.image}">
+      <h2>${currentLang === "ar" ? d.title_ar : d.title_en}</h2>
+      <p class="store">${currentLang === "ar" ? d.store_ar : d.store_en}</p>
+      <p>${currentLang === "ar" ? d.desc_ar : d.desc_en}</p>
+      <p class="expires">${expired ? "❌ Expired" : "⏰ Expires: " + d.expires}</p>
+      <button class="copy" onclick="copyCode('${d.code}')">Copy Code</button>
+      <button onclick="toggleFavorite('${d.title_en}')">❤️ Save</button>
+      <a class="visit" href="${d.link}" target="_blank">Visit Store</a>
+    `;
+
+    container.appendChild(card);
+  });
 }
