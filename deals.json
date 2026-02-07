@@ -1,28 +1,54 @@
 [
   {
-    "title_en": "🔥 Jumia Promo Code – 20% OFF",
-    "title_ar": "🔥 كود تخفيض جوميا – خصم 20%",
+    "title_en": "🛒 Jumia – Up to 20% OFF",
+    "title_ar": "🛒 جوميا – خصم يصل إلى 20٪",
     "store_en": "Jumia Morocco",
     "store_ar": "جوميا المغرب",
-    "desc_en": "Save 20% on electronics, fashion, and home items.",
-    "desc_ar": "وفر 20٪ على الإلكترونيات والملابس ومنتجات المنزل.",
+    "desc_en": "Save up to 20% on electronics, fashion, and home items.",
+    "desc_ar": "وفر حتى 20٪ على الإلكترونيات والملابس ومنتجات المنزل.",
     "code": "JUMIA20",
     "category": "electronics",
     "link": "https://www.jumia.ma",
-    "image": "https://via.placeholder.com/100x60?text=Jumia",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Jumia_logo.png",
     "expires": "2026-03-31"
   },
   {
-    "title_en": "🍕 Glovo Discount – 15% OFF",
-    "title_ar": "🍕 خصم جلوفو – 15%",
+    "title_en": "🍔 Glovo – 15% OFF First Order",
+    "title_ar": "🍔 جلوفو – خصم 15٪ على أول طلب",
     "store_en": "Glovo Morocco",
     "store_ar": "جلوفو المغرب",
-    "desc_en": "15% off food delivery.",
-    "desc_ar": "خصم 15٪ على توصيل الطعام.",
+    "desc_en": "15% discount on your first food delivery.",
+    "desc_ar": "خصم 15٪ على أول طلب توصيل طعام.",
     "code": "GLOVO15",
     "category": "food",
     "link": "https://glovoapp.com",
-    "image": "https://via.placeholder.com/100x60?text=Glovo",
-    "expires": "2026-03-31"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Glovo_logo.svg",
+    "expires": "2026-03-15"
+  },
+  {
+    "title_en": "🏋️ Decathlon – 10% OFF",
+    "title_ar": "🏋️ ديكاتلون – خصم 10٪",
+    "store_en": "Decathlon Morocco",
+    "store_ar": "ديكاتلون المغرب",
+    "desc_en": "10% off selected sports equipment.",
+    "desc_ar": "خصم 10٪ على معدات رياضية مختارة.",
+    "code": "DECATH10",
+    "category": "fashion",
+    "link": "https://www.decathlon.ma",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Decathlon_Logo.png",
+    "expires": "2026-04-01"
+  },
+  {
+    "title_en": "🛍 Marjane – Weekly Deals",
+    "title_ar": "🛍 مرجان – عروض أسبوعية",
+    "store_en": "Marjane",
+    "store_ar": "مرجان",
+    "desc_en": "Weekly discounts in stores.",
+    "desc_ar": "خصومات أسبوعية داخل المتاجر.",
+    "code": "",
+    "category": "local",
+    "link": "https://www.marjane.ma",
+    "image": "https://upload.wikimedia.org/wikipedia/fr/3/3a/Marjane_logo.png",
+    "expires": "2026-02-28"
   }
 ]
