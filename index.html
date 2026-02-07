@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
@@ -15,17 +14,7 @@
   <div id="user-area"></div>
 </header>
 
-<section class="hero">
-  <h2>Save money every time you shop online</h2>
-  <p>Best promo codes from Moroccan & international stores.</p>
-</section>
-
-<input
-  type="text"
-  id="search"
-  placeholder="Search deals (Jumia, food, fashion...)"
-  onkeyup="searchDeals()"
-/>
+<input id="search" placeholder="Search deals..." onkeyup="searchDeals()">
 
 <div class="filters">
   <button onclick="filterDeals('all')">All</button>
@@ -35,37 +24,7 @@
   <button onclick="filterDeals('local')">Local</button>
 </div>
 
-<main id="deals">
-
-  <div class="deal-card" data-category="electronics">
-    <h3>Jumia – 20% OFF</h3>
-    <p>Electronics & accessories.</p>
-    <span class="code">JUMIA20</span>
-    <a href="https://www.jumia.ma" target="_blank">Visit Store</a>
-  </div>
-
-  <div class="deal-card" data-category="fashion">
-    <h3>Shein – 15% OFF</h3>
-    <p>Fashion shipped to Morocco.</p>
-    <span class="code">SHEIN15</span>
-    <a href="https://www.shein.com" target="_blank">Visit Store</a>
-  </div>
-
-  <div class="deal-card" data-category="food">
-    <h3>Glovo – Free Delivery</h3>
-    <p>Order food with zero delivery fees.</p>
-    <span class="code">GLOVOFREE</span>
-    <a href="https://glovoapp.com" target="_blank">Visit Store</a>
-  </div>
-
-  <div class="deal-card" data-category="local">
-    <h3>Local Gym – 10% OFF</h3>
-    <p>Monthly gym subscription discount.</p>
-    <span class="code">FIT10</span>
-    <a href="#" target="_blank">Visit Store</a>
-  </div>
-
-</main>
+<main id="deals"></main>
 
 <footer>
   <p>© 2026 Dealna – Built in Morocco 🇲🇦</p>
