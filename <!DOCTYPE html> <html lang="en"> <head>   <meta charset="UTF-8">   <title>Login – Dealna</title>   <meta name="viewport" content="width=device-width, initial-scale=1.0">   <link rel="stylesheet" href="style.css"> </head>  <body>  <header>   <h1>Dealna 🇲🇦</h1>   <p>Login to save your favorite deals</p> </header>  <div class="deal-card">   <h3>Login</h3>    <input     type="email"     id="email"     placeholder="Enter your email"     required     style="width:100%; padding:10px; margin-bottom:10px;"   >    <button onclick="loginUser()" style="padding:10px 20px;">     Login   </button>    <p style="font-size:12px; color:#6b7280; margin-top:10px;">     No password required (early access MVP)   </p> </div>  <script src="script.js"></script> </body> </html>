@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – Dealna</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Dealna 🇲🇦</h1>
+  <p>Login to save your favorite deals</p>
+</header>
+
+<div class="deal-card">
+  <h3>Login</h3>
+
+  <input
+    type="email"
+    id="email"
+    placeholder="Enter your email"
+    required
+    style="width:100%; padding:10px; margin-bottom:10px;"
+  >
+
+  <button onclick="loginUser()" style="padding:10px 20px;">
+    Login
+  </button>
+
+  <p style="font-size:12px; color:#6b7280; margin-top:10px;">
+    No password required (early access MVP)
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
