@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Signup – Dealna</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.30.0/dist/supabase.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Dealna Login / Signup</h1>
+</header>
+
+<div class="deal-card">
+  <h3>Sign Up</h3>
+  <input id="signup-email" placeholder="Email">
+  <input id="signup-password" placeholder="Password" type="password">
+  <button onclick="signUp()">Sign Up</button>
+</div>
+
+<div class="deal-card">
+  <h3>Login</h3>
+  <input id="login-email" placeholder="Email">
+  <input id="login-password" placeholder="Password" type="password">
+  <button onclick="login()">Login</button>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
