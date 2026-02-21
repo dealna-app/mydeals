@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dealna – Save Money in Morocco</title>
+  <meta charset="UTF-8" />
+  <title>Dealna | Best Deals in Morocco</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>Dealna 🇲🇦</h1>
-  <p>Verified promo codes & deals for Morocco</p>
-  <div id="user-area"></div>
-</header>
+  <header>
+    <h1>Dealna</h1>
+    <p id="subtitle">Best Deals & Promo Codes in Morocco</p>
 
-<input id="search" placeholder="Search deals..." onkeyup="searchDeals()">
+    <div class="controls">
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search deals or stores..."
+        onkeyup="searchDeals()"
+      />
 
-<div class="filters">
-  <button onclick="filterDeals('all')">All</button>
-  <button onclick="filterDeals('food')">Food</button>
-  <button onclick="filterDeals('fashion')">Fashion</button>
-  <button onclick="filterDeals('electronics')">Electronics</button>
-  <button onclick="filterDeals('local')">Local</button>
-</div>
+      <div class="lang-switch">
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('ar')">AR</button>
+      </div>
+    </div>
+  </header>
 
-<main id="deals"></main>
+  <div class="filters">
+    <button onclick="filterDeals('all')">All</button>
+    <button onclick="filterDeals('fashion')">Fashion</button>
+    <button onclick="filterDeals('food')">Food</button>
+    <button onclick="filterDeals('electronics')">Electronics</button>
+    <button onclick="filterDeals('local')">Local</button>
+  </div>
 
-<footer>
-  <p>© 2026 Dealna – Built in Morocco 🇲🇦</p>
-</footer>
+  <main id="deals"></main>
 
-<script src="script.js"></script>
+  <footer>
+    <p>© 2026 Dealna — Made in Morocco 🇲🇦</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
