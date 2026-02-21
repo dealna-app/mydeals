@@ -1,79 +1,91 @@
-let deals = [];
+const deals = [
+  {
+    title_en: "Jumia – 20% OFF",
+    title_ar: "جوميا – خصم 20%",
+    store: "Jumia",
+    category: "electronics",
+    code: "JUMIA20",
+    expires: "31 March 2026",
+    link: "https://www.jumia.ma"
+  },
+  {
+    title_en: "Glovo Free Delivery",
+    title_ar: "غلوفو – توصيل مجاني",
+    store: "Glovo",
+    category: "food",
+    code: "GLOVOFREE",
+    expires: "15 April 2026",
+    link: "https://glovoapp.com"
+  },
+  {
+    title_en: "Decathlon – Sports Deals",
+    title_ar: "ديكاتلون – عروض رياضية",
+    store: "Decathlon",
+    category: "fashion",
+    code: "SPORT10",
+    expires: "30 April 2026",
+    link: "https://www.decathlon.ma"
+  },
+  {
+    title_en: "Local Brand – 15% OFF",
+    title_ar: "ماركة محلية – خصم 15%",
+    store: "Local Store",
+    category: "local",
+    code: "LOCAL15",
+    expires: "20 March 2026",
+    link: "#"
+  }
+];
 
-// LOAD DEALS
-fetch("deals.json")
-  .then(res => res.json())
-  .then(data => {
-    deals = JSON.parse(localStorage.getItem("deals")) || data;
-    renderDeals();
-    renderAdmin();
-  });
+let currentLanguage = "en";
 
-// RENDER DEALS ON MAIN PAGE
-function renderDeals() {
+function renderDeals(list) {
   const container = document.getElementById("deals");
-  if (!container) return;
-
   container.innerHTML = "";
-  deals.forEach(d => {
+
+  list.forEach(deal => {
     container.innerHTML += `
-      <div class="deal-card" data-category="${d.category}">
-        <h3>${d.title}</h3>
-        <p>${d.description}</p>
-        <span class="code">${d.code}</span>
-        <a href="${d.link}" target="_blank">Visit Store</a>
-      </div>
-    `;
-  });
-}
-
-// ADMIN PANEL FUNCTIONS
-function renderAdmin() {
-  const admin = document.getElementById("admin-deals");
-  if (!admin) return;
-
-  admin.innerHTML = "";
-  deals.forEach((d, i) => {
-    admin.innerHTML += `
       <div class="deal-card">
-        <b>${d.title}</b>
-        <button onclick="deleteDeal(${i})">Delete</button>
+        <h2>${currentLanguage === "en" ? deal.title_en : deal.title_ar}</h2>
+        <p class="store">${deal.store}</p>
+        <p class="meta">
+          ⏰ Expires: ${deal.expires}<br>
+          ✅ Verified
+        </p>
+        <button onclick="copyCode('${deal.code}')">
+          Copy Code: ${deal.code}
+        </button>
+        <a href="${deal.link}" target="_blank">Visit Store</a>
       </div>
     `;
   });
 }
 
-function addDeal() {
-  const deal = {
-    title: title.value,
-    description: description.value,
-    code: code.value,
-    category: category.value,
-    link: link.value
-  };
-  deals.push(deal);
-  localStorage.setItem("deals", JSON.stringify(deals));
-  renderDeals();
-  renderAdmin();
+function copyCode(code) {
+  navigator.clipboard.writeText(code);
+  alert("Code copied: " + code);
 }
 
-function deleteDeal(i) {
-  deals.splice(i, 1);
-  localStorage.setItem("deals", JSON.stringify(deals));
-  renderDeals();
-  renderAdmin();
-}
-
-// FILTER + SEARCH
-function filterDeals(cat) {
-  document.querySelectorAll(".deal-card").forEach(d => {
-    d.style.display = cat === "all" || d.dataset.category === cat ? "block" : "none";
-  });
+function filterDeals(category) {
+  if (category === "all") {
+    renderDeals(deals);
+  } else {
+    renderDeals(deals.filter(d => d.category === category));
+  }
 }
 
 function searchDeals() {
-  const q = search.value.toLowerCase();
-  document.querySelectorAll(".deal-card").forEach(d => {
-    d.style.display = d.innerText.toLowerCase().includes(q) ? "block" : "none";
-  });
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const filtered = deals.filter(d =>
+    d.store.toLowerCase().includes(query) ||
+    d.title_en.toLowerCase().includes(query)
+  );
+  renderDeals(filtered);
 }
+
+function setLanguage(lang) {
+  currentLanguage = lang;
+  renderDeals(deals);
+}
+
+renderDeals(deals);
