@@ -1,1008 +1,1257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dealna – أفضل العروض في المغرب</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dealna – AI-Powered Deals</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --red: #C8102E;
-    --green: #006233;
-    --gold: #E8A020;
-    --cream: #FAF6EE;
-    --dark: #1A1208;
-    --mid: #5C4A2A;
-    --light-gold: #FDF3DC;
-  }
+:root{
+  --blue:#1A6BFF;--blue2:#4D8FFF;--bluedim:#EBF2FF;--navy:#060E24;
+  --white:#FFFFFF;--gray:#F5F8FF;--text:#111827;--muted:#6B7A9A;
+  --border:#DDE5FF;--green:#00C47C;--orange:#FF5D2B;--red:#FF3B3B;
+  --gold:#FFB800;--radius:14px;--shadow:0 6px 32px rgba(26,107,255,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--text);min-height:100vh;overflow-x:hidden}
+h1,h2,h3,h4,.logo{font-family:'Clash Display',sans-serif}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#f0f4ff}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px}
 
-  /* ── NAV ── */
-  nav {
-    position: sticky; top: 0; z-index: 200;
-    background: var(--dark);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5vw; height: 64px;
-    border-bottom: 3px solid var(--gold);
-  }
-  .logo { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--cream); letter-spacing: -0.5px; cursor: pointer; }
-  .logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a { color: #ccc; text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta { background: var(--red) !important; color: #fff !important; padding: 0.45rem 1.2rem; border-radius: 4px; font-weight: 600 !important; }
-  .nav-cta:hover { background: #a50e26 !important; }
-  .nav-user { display: flex; align-items: center; gap: 0.6rem; color: var(--gold) !important; }
-  .nav-user .avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--gold); color: var(--dark); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; }
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 4%;height:62px;gap:28px}
+.logo{font-size:1.45rem;font-weight:700;color:var(--blue);letter-spacing:-.5px;cursor:pointer;text-decoration:none;user-select:none}
+.logo span{color:var(--navy)}
+.nav-links{display:flex;gap:6px;align-items:center;flex:1}
+.nav-link{font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer;border:none;background:none;padding:7px 14px;border-radius:8px;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-link:hover{color:var(--blue);background:var(--bluedim)}
+.nav-link.active{color:var(--blue);background:var(--bluedim);font-weight:600}
+.nav-right{display:flex;gap:8px;align-items:center;margin-left:auto}
+.nav-btn{font-size:.82rem;font-weight:600;border:1.5px solid var(--border);background:white;color:var(--text);border-radius:9px;padding:7px 16px;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-btn:hover{border-color:var(--blue);color:var(--blue)}
+.nav-btn.primary{background:var(--blue);color:white;border-color:var(--blue)}
+.nav-btn.primary:hover{background:var(--blue2)}
+.user-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-weight:700;font-size:.85rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
-  /* ── HERO ── */
-  .hero { position: relative; background: var(--dark); overflow: hidden; padding: 80px 5vw 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(200,16,46,0.18) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(0,98,51,0.15) 0%, transparent 50%); }
-  .hero::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 48%; opacity: 0.05; background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%); background-size: 20px 20px; }
-  .hero-text { position: relative; z-index: 2; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(232,160,32,0.15); border: 1px solid rgba(232,160,32,0.4); color: var(--gold); padding: 0.3rem 0.9rem; border-radius: 99px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.4rem; animation: fadeUp 0.6s ease both; }
-  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 900; color: var(--cream); line-height: 1.08; margin-bottom: 1.2rem; animation: fadeUp 0.6s 0.1s ease both; }
-  h1 em { color: var(--gold); font-style: normal; }
-  .hero-sub { color: #9e8e78; font-size: 1.05rem; line-height: 1.65; max-width: 420px; margin-bottom: 2rem; animation: fadeUp 0.6s 0.2s ease both; }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
-  .btn-primary { background: var(--red); color: #fff; padding: 0.85rem 2rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 20px rgba(200,16,46,0.4); font-family: 'DM Sans', sans-serif; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,16,46,0.5); }
-  .btn-secondary { background: transparent; color: var(--cream); padding: 0.85rem 2rem; border-radius: 6px; font-weight: 500; font-size: 0.95rem; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.2); transition: border-color 0.2s, background 0.2s; cursor: pointer; font-family: 'DM Sans', sans-serif; }
-  .btn-secondary:hover { border-color: var(--gold); background: rgba(232,160,32,0.08); }
-  .hero-stats { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; animation: fadeUp 0.6s 0.4s ease both; }
-  .stat-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s, background 0.2s; }
-  .stat-card:hover { border-color: rgba(232,160,32,0.35); background: rgba(232,160,32,0.05); }
-  .stat-card .num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1; }
-  .stat-card .label { color: #7a6a58; font-size: 0.82rem; margin-top: 0.3rem; }
+/* ── PAGES ── */
+.page{display:none}.page.active{display:block;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  /* ── SEARCH ── */
-  .search-bar { background: var(--dark); padding: 0 5vw 2rem; }
-  .search-inner { max-width: 700px; margin: 0 auto; display: flex; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(232,160,32,0.3); border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
-  .search-inner:focus-within { border-color: var(--gold); }
-  .search-inner input { flex: 1; background: transparent; border: none; outline: none; padding: 1rem 1.2rem; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
-  .search-inner input::placeholder { color: #6a5c48; }
-  .search-inner button { background: var(--gold); color: var(--dark); border: none; padding: 0 1.5rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
-  .search-inner button:hover { background: #d4921c; }
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#060E24 0%,#0A1E4A 55%,#1A3A8F 100%);padding:76px 4% 88px;position:relative;overflow:hidden}
+.hero-mesh{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(26,107,255,.3) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(0,196,124,.15) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;max-width:1200px}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:6px 16px;font-size:.78rem;color:rgba(255,255,255,.8);margin-bottom:22px}
+.hero-badge .pulse{width:7px;height:7px;background:#00C47C;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,196,124,.4)}50%{box-shadow:0 0 0 6px rgba(0,196,124,0)}}
+.hero h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:white;line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px}
+.hero h1 em{background:linear-gradient(90deg,#4D8FFF,#00C47C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal}
+.hero p{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:32px;max-width:480px}
+.hero-search{display:flex;background:white;border-radius:13px;padding:6px;gap:8px;max-width:520px;box-shadow:0 16px 48px rgba(0,0,0,.35)}
+.hero-search input{flex:1;border:none;outline:none;font-size:.92rem;padding:9px 14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text)}
+.hero-search input::placeholder{color:var(--muted)}
+.hero-search-btn{background:var(--blue);color:white;border:none;border-radius:9px;padding:10px 20px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:6px;transition:background .2s}
+.hero-search-btn:hover{background:var(--blue2)}
+.hero-stats{display:flex;gap:32px;margin-top:40px}
+.stat-num{font-family:'Clash Display',sans-serif;font-size:1.8rem;font-weight:700;color:white}
+.stat-label{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:2px}
 
-  /* ── SECTIONS ── */
-  section { padding: 60px 5vw; }
-  section + section { padding-top: 0; }
-  .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 2rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--dark); }
-  .section-title span { color: var(--red); }
-  .see-all { color: var(--red); font-weight: 600; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; cursor: pointer; }
-  .see-all:hover { border-color: var(--red); }
+/* hero right – AI widget preview */
+.hero-right{display:flex;flex-direction:column;gap:12px}
+.ai-preview-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px;backdrop-filter:blur(8px)}
+.ai-preview-card .label{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.ai-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(0,196,124,.15);border:1px solid rgba(0,196,124,.3);border-radius:50px;padding:5px 12px;font-size:.78rem;color:#00C47C;margin:3px}
+.ai-deals-preview{display:flex;flex-direction:column;gap:8px}
+.ai-deal-mini{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border-radius:10px;padding:10px 14px}
+.ai-deal-mini .icon{font-size:1.4rem}
+.ai-deal-mini .info{flex:1}
+.ai-deal-mini .name{font-size:.82rem;color:white;font-weight:600}
+.ai-deal-mini .disc{font-size:.72rem;color:#00C47C}
+.ai-deal-mini .score{font-size:.72rem;color:rgba(255,255,255,.4)}
 
-  /* ── CATEGORIES ── */
-  .categories { background: var(--light-gold); }
-  .cat-grid { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .cat-chip { display: flex; align-items: center; gap: 0.5rem; background: #fff; border: 1.5px solid #e8dcc8; padding: 0.55rem 1.1rem; border-radius: 99px; cursor: pointer; font-size: 0.88rem; font-weight: 500; color: var(--mid); transition: all 0.2s; text-decoration: none; }
-  .cat-chip:hover, .cat-chip.active { background: var(--dark); border-color: var(--dark); color: var(--gold); }
-  .cat-chip .icon { font-size: 1.1rem; }
+/* ── SECTION ── */
+.section{padding:52px 4%}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+.section-title{font-size:1.4rem;font-weight:700;letter-spacing:-.4px}
+.see-all{font-size:.85rem;font-weight:600;color:var(--blue);cursor:pointer;border:none;background:none;display:flex;align-items:center;gap:4px;transition:color .2s}
+.see-all:hover{color:var(--blue2)}
 
-  /* ── DEAL CARDS ── */
-  .deals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.4rem; }
-  .deal-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1.5px solid #ede4d4; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; position: relative; }
-  .deal-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,18,8,0.12); border-color: var(--gold); }
-  .deal-badge { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-  .deal-badge.verified { background: var(--green); }
-  .deal-badge.hot { background: #ff6b1a; }
-  .deal-img { height: 130px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, #faf0e0, #f5e8cc); }
-  .deal-body { padding: 1.1rem; }
-  .deal-store { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
-  .deal-title { font-weight: 600; font-size: 0.95rem; color: var(--dark); line-height: 1.35; margin-bottom: 0.8rem; }
-  .deal-code-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
-  .deal-code { flex: 1; background: var(--light-gold); border: 1.5px dashed #c9aa72; border-radius: 6px; padding: 0.4rem 0.7rem; font-family: 'Courier New', monospace; font-weight: 700; font-size: 0.9rem; color: var(--mid); letter-spacing: 0.05em; text-align: center; }
-  .copy-btn { background: var(--dark); color: var(--gold); border: none; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: background 0.2s; white-space: nowrap; font-family: 'DM Sans', sans-serif; }
-  .copy-btn:hover { background: #2e2010; }
-  .copy-btn.copied { background: var(--green); color: #fff; }
-  .deal-footer { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: #9e8e78; }
-  .deal-savings { font-weight: 700; color: var(--red); font-size: 0.88rem; }
-  .expiry { display: flex; align-items: center; gap: 0.3rem; }
-  .expiry .dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; }
-  .expiry .dot.soon { background: #f59e0b; }
-  .expiry .dot.expired { background: #ef4444; }
+/* ── CATS ── */
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0}
+.cat-btn{display:flex;align-items:center;gap:7px;background:white;border:1.5px solid var(--border);border-radius:50px;padding:9px 18px;font-size:.84rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text)}
+.cat-btn:hover,.cat-btn.active{background:var(--bluedim);border-color:var(--blue);color:var(--blue);font-weight:600}
 
-  /* save button on card */
-  .save-btn { position: absolute; top: 12px; right: 12px; background: rgba(26,18,8,0.6); border: none; color: #ccc; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; backdrop-filter: blur(4px); }
-  .save-btn:hover, .save-btn.saved { color: var(--gold); background: rgba(26,18,8,0.85); }
+/* ── DEALS GRID ── */
+.deals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.deal-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .22s;cursor:pointer;position:relative}
+.deal-card:hover{box-shadow:var(--shadow);transform:translateY(-4px);border-color:var(--blue2)}
+.deal-card.saved .save-btn{color:var(--blue)}
+.save-btn{position:absolute;top:10px;right:10px;background:white;border:1.5px solid var(--border);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;z-index:2;transition:all .2s}
+.save-btn:hover{border-color:var(--blue);color:var(--blue)}
+.deal-img-area{width:100%;height:148px;background:var(--bluedim);display:flex;align-items:center;justify-content:center;font-size:3.2rem}
+.deal-body{padding:14px}
+.deal-tags{display:flex;gap:5px;margin-bottom:9px;flex-wrap:wrap}
+.tag{font-size:.7rem;font-weight:700;border-radius:50px;padding:3px 10px;text-transform:uppercase;letter-spacing:.3px}
+.tag-cat{background:var(--bluedim);color:var(--blue)}
+.tag-hot{background:#FFF0EB;color:var(--orange)}
+.tag-new{background:#E6FFF5;color:var(--green)}
+.tag-verified{background:#F0FFF8;color:#009965}
+.tag-ai{background:linear-gradient(90deg,#EBF2FF,#F0FFF8);color:var(--blue);border:1px solid var(--border)}
+.deal-store{font-size:.75rem;color:var(--muted);margin-bottom:3px;font-weight:500}
+.deal-title{font-family:'Clash Display',sans-serif;font-size:.98rem;font-weight:600;line-height:1.3;margin-bottom:7px}
+.deal-desc{font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:12px}
+.deal-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.deal-discount{font-family:'Clash Display',sans-serif;font-size:1.35rem;font-weight:700;color:var(--orange)}
+.deal-original{font-size:.74rem;color:var(--muted);text-decoration:line-through}
+.promo-box{display:flex;align-items:center;gap:6px;background:var(--gray);border-radius:8px;padding:6px 10px;border:1.5px dashed var(--border)}
+.promo-code{font-family:'Clash Display',sans-serif;font-size:.8rem;font-weight:700;color:var(--blue);letter-spacing:1px}
+.copy-btn{font-size:.68rem;font-weight:700;background:var(--blue);color:white;border:none;border-radius:6px;padding:4px 9px;cursor:pointer;transition:background .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.copy-btn:hover{background:var(--blue2)}
+.copy-btn.copied{background:var(--green)}
+.deal-expiry{font-size:.72rem;color:var(--muted);margin-top:8px}
+.ai-match-bar{margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.ai-match-label{font-size:.72rem;color:var(--muted);margin-bottom:4px}
+.ai-match-track{background:var(--border);border-radius:4px;height:4px}
+.ai-match-fill{background:linear-gradient(90deg,var(--blue),var(--green));height:4px;border-radius:4px;transition:width .6s}
 
-  /* ── LOAD MORE ── */
-  .load-more-wrap { text-align: center; margin-top: 2rem; }
+/* ── STORES ── */
+.stores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.store-card{background:var(--gray);border:1.5px solid var(--border);border-radius:var(--radius);padding:22px 14px;text-align:center;cursor:pointer;transition:all .2s}
+.store-card:hover{border-color:var(--blue);background:var(--bluedim);transform:translateY(-2px)}
+.store-icon{font-size:2rem;margin-bottom:9px}
+.store-name{font-family:'Clash Display',sans-serif;font-size:.88rem;font-weight:600}
+.store-count{font-size:.74rem;color:var(--muted);margin-top:3px}
+.store-clicks{font-size:.72rem;color:var(--green);margin-top:2px;font-weight:600}
 
-  /* ── STORES ── */
-  .featured-section { background: var(--dark); }
-  .featured-section .section-title { color: var(--cream); }
-  .store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
-  .store-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s; text-decoration: none; }
-  .store-card:hover { background: rgba(232,160,32,0.1); border-color: rgba(232,160,32,0.4); transform: translateY(-2px); }
-  .store-card .store-icon { font-size: 2rem; margin-bottom: 0.6rem; }
-  .store-card .store-name { color: #ccc; font-size: 0.82rem; font-weight: 500; }
-  .store-card .store-count { color: var(--gold); font-size: 0.72rem; margin-top: 0.2rem; }
+/* ── AI CHAT ── */
+.chat-container{position:fixed;bottom:24px;right:24px;z-index:300}
+.chat-fab{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#0038CC);color:white;border:none;cursor:pointer;font-size:1.5rem;box-shadow:0 6px 24px rgba(26,107,255,.4);transition:all .2s;display:flex;align-items:center;justify-content:center}
+.chat-fab:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(26,107,255,.5)}
+.chat-fab .badge{position:absolute;top:-3px;right:-3px;width:16px;height:16px;background:var(--orange);border-radius:50%;font-size:.62rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid white}
+.chat-window{position:absolute;bottom:66px;right:0;width:360px;background:white;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.18);border:1px solid var(--border);display:none;flex-direction:column;overflow:hidden;animation:slideUp .25s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.chat-window.open{display:flex}
+.chat-header{background:linear-gradient(135deg,var(--navy),#1A3A8F);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.chat-avatar{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.chat-header-info{flex:1}
+.chat-header-info .name{font-family:'Clash Display',sans-serif;font-size:.92rem;font-weight:600;color:white}
+.chat-header-info .status{font-size:.72rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:4px}
+.online-dot{width:6px;height:6px;background:var(--green);border-radius:50%}
+.chat-close{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.7);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.chat-msgs{flex:1;max-height:320px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{display:flex;gap:8px;align-items:flex-end}
+.msg.user{flex-direction:row-reverse}
+.msg-bubble{max-width:78%;padding:10px 14px;border-radius:14px;font-size:.83rem;line-height:1.55}
+.msg.bot .msg-bubble{background:var(--gray);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
+.msg.user .msg-bubble{background:var(--blue);color:white;border-bottom-right-radius:4px}
+.msg-avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.msg-time{font-size:.65rem;color:var(--muted);margin-top:2px;text-align:right}
+.typing-indicator{display:flex;gap:4px;padding:10px 14px;background:var(--gray);border-radius:14px;border-bottom-left-radius:4px;width:fit-content}
+.typing-dot{width:6px;height:6px;background:var(--muted);border-radius:50%;animation:typing .9s infinite}
+.typing-dot:nth-child(2){animation-delay:.15s}.typing-dot:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+.chat-suggestions{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px}
+.suggestion-chip{background:var(--bluedim);border:1px solid var(--border);border-radius:50px;padding:5px 12px;font-size:.75rem;color:var(--blue);cursor:pointer;font-weight:500;transition:all .2s}
+.suggestion-chip:hover{background:var(--blue);color:white}
+.chat-input-row{padding:12px;border-top:1px solid var(--border);display:flex;gap:8px}
+.chat-input{flex:1;border:1.5px solid var(--border);border-radius:10px;padding:9px 14px;font-size:.85rem;outline:none;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .2s}
+.chat-input:focus{border-color:var(--blue)}
+.chat-send{background:var(--blue);color:white;border:none;border-radius:10px;padding:9px 16px;cursor:pointer;font-size:.9rem;transition:background .2s}
+.chat-send:hover{background:var(--blue2)}
 
-  /* ── HOW IT WORKS ── */
-  .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
-  .how-step { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; background: #fff; border: 1.5px solid #ede4d4; transition: border-color 0.2s; }
-  .how-step:hover { border-color: var(--gold); }
-  .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--dark); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin: 0 auto 1rem; }
-  .how-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .how-step p { font-size: 0.87rem; color: #6a5c48; line-height: 1.6; }
+/* ── AUTH MODAL ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(6,14,36,.55);backdrop-filter:blur(5px);z-index:400;align-items:center;justify-content:center}
+.overlay.open{display:flex}
+.auth-modal{background:white;border-radius:22px;max-width:420px;width:92%;padding:36px;animation:modalIn .25s ease;position:relative}
+@keyframes modalIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
+.auth-close{position:absolute;top:14px;right:14px;background:var(--gray);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1rem}
+.auth-modal h3{font-size:1.5rem;font-weight:700;margin-bottom:6px}
+.auth-modal p{font-size:.87rem;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.form-group{margin-bottom:14px}
+.form-group label{font-size:.8rem;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px}
+.form-group input{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.9rem;outline:none;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .2s}
+.form-group input:focus{border-color:var(--blue)}
+.form-row{display:flex;gap:10px}
+.btn-full{width:100%;background:var(--blue);color:white;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Clash Display',sans-serif;letter-spacing:.3px;transition:background .2s;margin-top:6px}
+.btn-full:hover{background:var(--blue2)}
+.auth-switch{text-align:center;font-size:.83rem;color:var(--muted);margin-top:16px}
+.auth-switch a{color:var(--blue);cursor:pointer;font-weight:600}
+.prefs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.pref-chip{border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;cursor:pointer;font-size:.83rem;font-weight:500;transition:all .2s}
+.pref-chip.selected{border-color:var(--blue);background:var(--bluedim);color:var(--blue);font-weight:600}
 
-  /* ── NEWSLETTER ── */
-  .newsletter { background: var(--red); position: relative; overflow: hidden; }
-  .newsletter::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 0, transparent 20px); }
-  .newsletter-inner { position: relative; max-width: 580px; margin: 0 auto; text-align: center; }
-  .newsletter h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: #fff; margin-bottom: 0.8rem; }
-  .newsletter p { color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; }
-  .nl-form { display: flex; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
-  .nl-form input { flex: 1; border: none; outline: none; padding: 0.9rem 1.2rem; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--dark); }
-  .nl-form button { background: var(--dark); color: var(--gold); border: none; padding: 0 1.4rem; font-weight: 700; font-size: 0.88rem; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; transition: background 0.2s; white-space: nowrap; font-family: 'DM Sans', sans-serif; }
-  .nl-form button:hover { background: #2e2010; }
+/* ── ADMIN ── */
+#page-admin{background:var(--gray);min-height:100vh}
+.admin-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 62px)}
+.admin-sidebar{background:var(--navy);padding:24px 0}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:11px 20px;color:rgba(255,255,255,.55);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
+.sidebar-item:hover{color:white;background:rgba(255,255,255,.07)}
+.sidebar-item.active{color:white;background:rgba(26,107,255,.2);border-left-color:var(--blue)}
+.sidebar-item .icon{font-size:1rem;width:20px;text-align:center}
+.admin-main{padding:28px;overflow:auto}
+.admin-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.admin-topbar h2{font-size:1.5rem;font-weight:700}
+.admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;margin-bottom:28px}
+.stat-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .2s}
+.stat-card:hover{box-shadow:var(--shadow)}
+.stat-card .icon{font-size:1.8rem;margin-bottom:10px}
+.stat-card .val{font-family:'Clash Display',sans-serif;font-size:2rem;font-weight:700;line-height:1}
+.stat-card .lbl{font-size:.78rem;color:var(--muted);margin-top:4px}
+.stat-card .trend{font-size:.76rem;color:var(--green);font-weight:600;margin-top:6px}
+.panel{background:white;border:1.5px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:22px}
+.panel h4{font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+table{width:100%;border-collapse:collapse}
+th{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;padding:8px 12px;text-align:left;border-bottom:1.5px solid var(--border)}
+td{font-size:.84rem;padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--gray)}
+.badge{display:inline-block;border-radius:50px;padding:3px 10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.badge-active{background:#E6FFF5;color:var(--green)}
+.badge-expired{background:#FFF0F0;color:var(--red)}
+.badge-pending{background:#FFF8E6;color:var(--gold)}
+.action-btn{background:none;border:1.5px solid var(--border);border-radius:7px;padding:4px 10px;font-size:.75rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+.action-btn:hover{border-color:var(--blue);color:var(--blue)}
+.action-btn.danger:hover{border-color:var(--red);color:var(--red)}
+.add-btn{background:var(--blue);color:white;border:none;border-radius:10px;padding:9px 20px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:6px;transition:background .2s}
+.add-btn:hover{background:var(--blue2)}
 
-  /* ── FOOTER ── */
-  footer { background: #110e07; color: #7a6a58; padding: 40px 5vw 24px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
-  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cream); margin-bottom: 0.8rem; }
-  .footer-logo span { color: var(--gold); }
-  footer p { font-size: 0.85rem; line-height: 1.65; }
-  .footer-col h4 { color: var(--cream); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .footer-col a { color: #7a6a58; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.4rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
-  .ornament { text-align: center; font-size: 1.5rem; color: var(--gold); opacity: 0.4; letter-spacing: 0.5rem; padding: 0.5rem 0; }
+/* ── ANALYTICS ── */
+.chart-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.chart-label{font-size:.78rem;color:var(--muted);width:80px;text-align:right;flex-shrink:0}
+.chart-track{flex:1;background:var(--gray);border-radius:4px;height:20px;overflow:hidden}
+.chart-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:.7rem;font-weight:700;color:white;transition:width .8s}
+.chart-val{font-size:.78rem;font-weight:600;width:48px;text-align:right}
 
-  /* ── MODAL ── */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(26,18,8,0.75); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.25s; backdrop-filter: blur(4px); }
-  .modal-overlay.open { opacity: 1; pointer-events: all; }
-  .modal { background: #fff; border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 440px; position: relative; transform: translateY(20px); transition: transform 0.25s; }
-  .modal-overlay.open .modal { transform: translateY(0); }
-  .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #9e8e78; }
-  .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.3rem; }
-  .modal p { color: #6a5c48; font-size: 0.9rem; margin-bottom: 1.5rem; }
-  .modal-tabs { display: flex; gap: 0; border-radius: 8px; overflow: hidden; border: 1.5px solid #ede4d4; margin-bottom: 1.5rem; }
-  .modal-tab { flex: 1; padding: 0.65rem; text-align: center; font-weight: 600; font-size: 0.88rem; cursor: pointer; background: #fff; border: none; color: var(--mid); transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
-  .modal-tab.active { background: var(--dark); color: var(--gold); }
-  .form-group { margin-bottom: 1rem; }
-  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--mid); margin-bottom: 0.4rem; letter-spacing: 0.04em; text-transform: uppercase; }
-  .form-group input { width: 100%; border: 1.5px solid #e8dcc8; border-radius: 8px; padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--dark); outline: none; transition: border-color 0.2s; }
-  .form-group input:focus { border-color: var(--gold); }
-  .form-error { color: var(--red); font-size: 0.82rem; margin-top: 0.3rem; }
-  .form-success { color: var(--green); font-size: 0.85rem; margin-bottom: 1rem; background: #f0fdf4; padding: 0.75rem; border-radius: 8px; border: 1px solid #bbf7d0; }
-  .btn-full { width: 100%; padding: 0.9rem; font-size: 0.95rem; border-radius: 8px; }
+/* ── PROFILE ── */
+.profile-header{background:linear-gradient(135deg,var(--navy),#1A3A8F);padding:40px 4%;display:flex;align-items:center;gap:24px}
+.profile-avatar-big{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;font-size:2rem;border:3px solid rgba(255,255,255,.3)}
+.profile-info h3{font-size:1.5rem;font-weight:700;color:white}
+.profile-info p{font-size:.85rem;color:rgba(255,255,255,.55);margin-top:4px}
+.profile-stats{display:flex;gap:24px;margin-top:12px}
+.p-stat{text-align:center}
+.p-stat .n{font-family:'Clash Display',sans-serif;font-size:1.3rem;font-weight:700;color:white}
+.p-stat .l{font-size:.72rem;color:rgba(255,255,255,.45)}
+.saved-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 
-  /* ── SKELETON LOADERS ── */
-  .skeleton { background: linear-gradient(90deg, #f0e8d8 25%, #faf3e0 50%, #f0e8d8 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 8px; }
-  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-  .skeleton-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1.5px solid #ede4d4; }
-  .skeleton-img { height: 130px; }
-  .skeleton-body { padding: 1.1rem; }
-  .skeleton-line { height: 12px; margin-bottom: 10px; }
-  .skeleton-line.short { width: 60%; }
-  .skeleton-line.medium { width: 80%; }
+/* ── PAGE HEADERS ── */
+.page-header{background:var(--gray);padding:36px 4% 28px;border-bottom:1px solid var(--border)}
+.page-header h2{font-size:1.7rem;font-weight:700;letter-spacing:-.5px;margin-bottom:5px}
+.page-header p{color:var(--muted);font-size:.88rem}
 
-  /* ── TOAST ── */
-  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--dark); color: var(--gold); padding: 0.7rem 1.5rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600; box-shadow: 0 8px 24px rgba(0,0,0,0.3); opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid rgba(232,160,32,0.3); white-space: nowrap; }
-  .toast.show { opacity: 1; }
-  .toast.success { border-color: rgba(0,98,51,0.4); background: var(--green); color: #fff; }
-  .toast.error { border-color: rgba(200,16,46,0.4); background: var(--red); color: #fff; }
+/* ── FILTERS ── */
+.filters-bar{display:flex;align-items:center;gap:10px;padding:16px 4%;border-bottom:1px solid var(--border);flex-wrap:wrap;background:white}
+.filter-label{font-size:.82rem;font-weight:600;color:var(--muted)}
+.filter-chip{background:white;border:1.5px solid var(--border);border-radius:50px;padding:7px 15px;font-size:.81rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text)}
+.filter-chip:hover,.filter-chip.active{background:var(--blue);color:white;border-color:var(--blue)}
+.search-bar-sm{display:flex;gap:8px;margin-left:auto}
+.search-bar-sm input{border:1.5px solid var(--border);border-radius:10px;padding:8px 14px;font-size:.85rem;outline:none;font-family:'Plus Jakarta Sans',sans-serif;width:200px;transition:border-color .2s}
+.search-bar-sm input:focus{border-color:var(--blue)}
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* ── ABOUT ── */
+.about-hero{background:linear-gradient(135deg,var(--bluedim) 0%,var(--gray) 100%);padding:68px 4%;text-align:center}
+.about-hero h2{font-size:2.4rem;font-weight:700;letter-spacing:-1px;margin-bottom:14px}
+.about-hero h2 span{color:var(--blue)}
+.about-hero p{font-size:1rem;color:var(--muted);max-width:540px;margin:0 auto 30px;line-height:1.75}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.feat-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius);padding:26px 22px;transition:all .2s}
+.feat-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.feat-icon{font-size:1.9rem;margin-bottom:12px}
+.feat-card h4{font-size:.95rem;font-weight:700;margin-bottom:7px}
+.feat-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 50px 5vw 60px; }
-    .hero::after { display: none; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .nav-links { display: none; }
-  }
+/* ── DEAL MODAL ── */
+.deal-overlay{display:none;position:fixed;inset:0;background:rgba(6,14,36,.55);backdrop-filter:blur(5px);z-index:400;align-items:center;justify-content:center}
+.deal-overlay.open{display:flex}
+.deal-modal{background:white;border-radius:22px;max-width:480px;width:92%;padding:30px;position:relative;animation:modalIn .25s ease;max-height:90vh;overflow-y:auto}
+.deal-modal-close{position:absolute;top:14px;right:14px;background:var(--gray);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1rem}
+.deal-modal-icon{font-size:4rem;margin-bottom:14px;text-align:center}
+.deal-modal h3{font-size:1.3rem;font-weight:700;margin-bottom:5px}
+.modal-store-badge{font-size:.78rem;color:var(--muted);margin-bottom:12px}
+.modal-code-box{display:flex;align-items:center;justify-content:space-between;background:var(--gray);border:2px dashed var(--border);border-radius:12px;padding:15px 18px;margin:16px 0}
+.modal-code{font-family:'Clash Display',sans-serif;font-size:1.3rem;font-weight:700;color:var(--blue);letter-spacing:2px}
+.modal-copy{background:var(--blue);color:white;border:none;border-radius:10px;padding:10px 18px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s}
+.modal-copy.copied{background:var(--green)}
+.modal-visit{display:block;text-align:center;background:var(--navy);color:white;border:none;border-radius:12px;padding:13px;font-weight:600;cursor:pointer;width:100%;font-family:'Clash Display',sans-serif;font-size:.95rem;text-decoration:none;margin-top:10px;transition:background .2s;letter-spacing:.3px}
+.modal-visit:hover{background:var(--blue)}
+.ai-reasons{background:var(--bluedim);border-radius:10px;padding:12px 14px;margin-top:12px}
+.ai-reasons .label{font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.ai-reason-item{font-size:.8rem;color:var(--text);padding:2px 0;display:flex;align-items:center;gap:6px}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--navy);color:white;padding:12px 22px;border-radius:50px;font-size:.85rem;font-weight:500;z-index:999;transition:transform .3s;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.55);padding:48px 4% 24px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.footer-logo{font-family:'Clash Display',sans-serif;font-size:1.4rem;font-weight:700;color:white;display:block;margin-bottom:10px;cursor:pointer}
+.footer-logo span{color:rgba(255,255,255,.4)}
+.footer-desc{font-size:.83rem;line-height:1.7;max-width:240px}
+.footer-col h5{font-family:'Clash Display',sans-serif;font-size:.85rem;font-weight:600;color:white;margin-bottom:12px}
+.footer-col a{display:block;font-size:.81rem;color:rgba(255,255,255,.45);margin-bottom:7px;cursor:pointer;text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:white}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{display:none}.footer-top{grid-template-columns:1fr 1fr}.admin-layout{grid-template-columns:1fr}}
+@media(max-width:600px){.nav-links{display:none}.chat-window{width:300px}.deals-grid{grid-template-columns:1fr}}
+
+/* ── AI LOADING ── */
+.ai-thinking{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);padding:10px 0}
+.ai-spinner{width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ai-banner{background:linear-gradient(90deg,var(--bluedim),#EFF7FF);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ai-banner .ai-icon{font-size:1.4rem}
+.ai-banner p{font-size:.84rem;color:var(--text);line-height:1.5}
+.ai-banner strong{color:var(--blue)}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
-  <div class="logo" onclick="scrollToTop()">Deal<span>na</span></div>
-  <ul class="nav-links">
-    <li><a onclick="scrollToDeals()">Deals</a></li>
-    <li><a onclick="scrollToStores()">Stores</a></li>
-    <li><a onclick="scrollToHow()">How it Works</a></li>
-    <li id="nav-auth-area">
-      <a class="nav-cta" onclick="openModal()">Sign In</a>
-    </li>
-  </ul>
+  <a class="logo" onclick="goTo('home')">Deal<span>na</span></a>
+  <div class="nav-links">
+    <button class="nav-link active" id="nav-home" onclick="goTo('home')">Home</button>
+    <button class="nav-link" id="nav-deals" onclick="goTo('deals')">Deals</button>
+    <button class="nav-link" id="nav-stores" onclick="goTo('stores')">Stores</button>
+    <button class="nav-link" id="nav-about" onclick="goTo('about')">About</button>
+    <button class="nav-link" id="nav-admin" onclick="goTo('admin')" style="color:var(--orange)">⚙ Admin</button>
+  </div>
+  <div class="nav-right" id="navRight">
+    <button class="nav-btn" onclick="openAuth('login')">Sign In</button>
+    <button class="nav-btn primary" onclick="openAuth('signup')">Get Started</button>
+  </div>
 </nav>
 
-<!-- ── HERO ── -->
-<div class="hero">
-  <div class="hero-text">
-    <div class="hero-badge">🇲🇦 Made for Morocco</div>
-    <h1>Save More on<br>Every <em>Purchase</em></h1>
-    <p class="hero-sub">Morocco's #1 platform for verified promo codes, exclusive deals, and real savings — from your favorite local and international stores.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="scrollToDeals()">Browse Deals</button>
-      <button class="btn-secondary" onclick="scrollToHow()">How it Works</button>
+<!-- ══════════ HOME ══════════ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-mesh"></div>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-badge"><span class="pulse"></span> 🇲🇦 AI-Powered · Morocco's #1 Deals Hub</div>
+        <h1>Your <em>AI Shopping</em> Assistant for Morocco</h1>
+        <p>Claude-powered deal discovery, smart promo codes, and personalized savings — from Morocco's best stores.</p>
+        <div class="hero-search">
+          <input type="text" id="heroInput" placeholder="Ask AI: 'best deals for phones under 3000 MAD'…" onkeydown="if(event.key==='Enter')aiSearch()"/>
+          <button class="hero-search-btn" onclick="aiSearch()">✨ AI Search</button>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-num">200+</div><div class="stat-label">Verified Deals</div></div>
+          <div><div class="stat-num">40+</div><div class="stat-label">Partner Stores</div></div>
+          <div><div class="stat-num">AI</div><div class="stat-label">Powered</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="ai-preview-card">
+          <div class="label">🤖 AI Matched for You</div>
+          <div style="display:flex;flex-wrap:wrap">
+            <span class="ai-tag">📱 Electronics</span><span class="ai-tag">👗 Fashion</span><span class="ai-tag">🍔 Food</span>
+          </div>
+        </div>
+        <div class="ai-preview-card">
+          <div class="label">⚡ Top Picks Right Now</div>
+          <div class="ai-deals-preview" id="heroPreview"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" style="padding-bottom:12px">
+    <div class="section-header"><h2 class="section-title">Browse by Category</h2></div>
+    <div class="cats" id="homeCats">
+      <button class="cat-btn active" data-cat="" onclick="filterHome('')">🏷️ All</button>
+      <button class="cat-btn" data-cat="Food" onclick="filterHome('Food')">🍔 Food</button>
+      <button class="cat-btn" data-cat="Fashion" onclick="filterHome('Fashion')">👗 Fashion</button>
+      <button class="cat-btn" data-cat="Electronics" onclick="filterHome('Electronics')">📱 Electronics</button>
+      <button class="cat-btn" data-cat="Beauty" onclick="filterHome('Beauty')">💄 Beauty</button>
+      <button class="cat-btn" data-cat="Travel" onclick="filterHome('Travel')">✈️ Travel</button>
+      <button class="cat-btn" data-cat="Local" onclick="filterHome('Local')">🌿 Local</button>
+    </div>
+  </section>
+  <section class="section" style="padding-top:20px">
+    <div class="section-header">
+      <h2 class="section-title">🔥 Hot Deals Today</h2>
+      <button class="see-all" onclick="goTo('deals')">See all →</button>
+    </div>
+    <div id="aiSearchBanner" style="display:none" class="ai-banner">
+      <span class="ai-icon">🤖</span>
+      <p id="aiSearchText">AI is finding the best deals for you…</p>
+    </div>
+    <div class="deals-grid" id="homeGrid"></div>
+  </section>
+
+  <!-- STORES -->
+  <section class="section" style="background:var(--gray)">
+    <div class="section-header"><h2 class="section-title">Featured Stores</h2><button class="see-all" onclick="goTo('stores')">All stores →</button></div>
+    <div class="stores-grid" id="homeStores"></div>
+  </section>
+</div>
+
+<!-- ══════════ DEALS ══════════ -->
+<div id="page-deals" class="page">
+  <div class="page-header">
+    <h2>All Deals & Promo Codes</h2>
+    <p>200+ verified deals, refreshed daily by AI</p>
+  </div>
+  <div class="filters-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-chip active" data-cat="" onclick="filterDeals('')">All</button>
+    <button class="filter-chip" data-cat="Food" onclick="filterDeals('Food')">🍔 Food</button>
+    <button class="filter-chip" data-cat="Fashion" onclick="filterDeals('Fashion')">👗 Fashion</button>
+    <button class="filter-chip" data-cat="Electronics" onclick="filterDeals('Electronics')">📱 Electronics</button>
+    <button class="filter-chip" data-cat="Beauty" onclick="filterDeals('Beauty')">💄 Beauty</button>
+    <button class="filter-chip" data-cat="Travel" onclick="filterDeals('Travel')">✈️ Travel</button>
+    <button class="filter-chip" data-cat="Local" onclick="filterDeals('Local')">🌿 Local</button>
+    <div class="search-bar-sm">
+      <input id="dealsSearch" placeholder="Search deals…" oninput="renderDeals()"/>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="stat-card"><div class="num" id="stat-deals">—</div><div class="label">Active Promo Codes</div></div>
-    <div class="stat-card"><div class="num" id="stat-stores">—</div><div class="label">Partner Stores</div></div>
-    <div class="stat-card"><div class="num">98%</div><div class="label">Verified &amp; Working</div></div>
-    <div class="stat-card"><div class="num">50k+</div><div class="label">Happy Savers</div></div>
+  <div class="section">
+    <div class="deals-grid" id="allDealsGrid"></div>
   </div>
 </div>
 
-<!-- ── SEARCH ── -->
-<div class="search-bar">
-  <div class="search-inner">
-    <input id="search-input" type="text" placeholder="Search stores, brands, or promo codes...">
-    <button onclick="handleSearch()">Search</button>
+<!-- ══════════ STORES ══════════ -->
+<div id="page-stores" class="page">
+  <div class="page-header"><h2>Partner Stores</h2><p>Shop at Morocco's best stores with exclusive Dealna discounts</p></div>
+  <div class="section">
+    <div class="stores-grid" id="allStoresGrid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"></div>
   </div>
 </div>
 
-<!-- ── CATEGORIES ── -->
-<section class="categories">
-  <div class="section-header">
-    <h2 class="section-title">Shop by <span>Category</span></h2>
+<!-- ══════════ ABOUT ══════════ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <h2>About <span>Dealna</span></h2>
+    <p>Morocco's first AI-powered deals platform — saving millions of shoppers time and money every day.</p>
+    <button class="nav-btn primary" onclick="goTo('deals')" style="margin:0 auto;display:inline-block">Explore Deals</button>
   </div>
-  <div class="cat-grid" id="cat-grid">
-    <div class="skeleton" style="width:100px;height:38px;border-radius:99px"></div>
-    <div class="skeleton" style="width:110px;height:38px;border-radius:99px"></div>
-    <div class="skeleton" style="width:130px;height:38px;border-radius:99px"></div>
-    <div class="skeleton" style="width:100px;height:38px;border-radius:99px"></div>
-  </div>
-</section>
-
-<!-- ── DEALS ── -->
-<section id="deals-section">
-  <div class="section-header">
-    <h2 class="section-title" id="deals-heading">🔥 Today's <span>Top Deals</span></h2>
-    <a class="see-all" onclick="loadMore()">Load more →</a>
-  </div>
-  <div class="deals-grid" id="deals-grid">
-    <!-- skeletons -->
-    <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line short"></div><div class="skeleton skeleton-line medium"></div><div class="skeleton skeleton-line"></div></div></div>
-    <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line short"></div><div class="skeleton skeleton-line medium"></div><div class="skeleton skeleton-line"></div></div></div>
-    <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line short"></div><div class="skeleton skeleton-line medium"></div><div class="skeleton skeleton-line"></div></div></div>
-  </div>
-  <div class="load-more-wrap" id="load-more-wrap" style="display:none">
-    <button class="btn-secondary" id="load-more-btn" onclick="loadMore()">Load more deals</button>
-  </div>
-</section>
-
-<!-- ── STORES ── -->
-<section class="featured-section" id="stores-section">
-  <div class="section-header">
-    <h2 class="section-title">🏪 Featured <span style="color:var(--gold)">Stores</span></h2>
-  </div>
-  <div class="store-grid" id="store-grid">
-    <div class="skeleton" style="height:120px;border-radius:12px"></div>
-    <div class="skeleton" style="height:120px;border-radius:12px;opacity:.7"></div>
-    <div class="skeleton" style="height:120px;border-radius:12px;opacity:.5"></div>
-    <div class="skeleton" style="height:120px;border-radius:12px;opacity:.4"></div>
-  </div>
-</section>
-
-<!-- ── HOW IT WORKS ── -->
-<section id="how-section">
-  <div class="section-header">
-    <h2 class="section-title">How <span>Dealna</span> Works</h2>
-  </div>
-  <div class="how-grid">
-    <div class="how-step"><div class="step-num">1</div><h3>Find Your Store</h3><p>Search from 300+ Moroccan and international stores. We cover every category you shop.</p></div>
-    <div class="how-step"><div class="step-num">2</div><h3>Grab the Code</h3><p>Click "Copy" to instantly copy a verified promo code — no login required, ever.</p></div>
-    <div class="how-step"><div class="step-num">3</div><h3>Paste &amp; Save</h3><p>Paste the code at checkout and watch your total drop. It really is that simple.</p></div>
-    <div class="how-step"><div class="step-num">4</div><h3>Get Alerted</h3><p>Subscribe to get notified when your favorite stores drop new deals and flash sales.</p></div>
-  </div>
-</section>
-
-<div class="ornament">✦ ✦ ✦ ✦ ✦</div>
-
-<!-- ── NEWSLETTER ── -->
-<section class="newsletter">
-  <div class="newsletter-inner">
-    <h2>Don't Miss a Deal</h2>
-    <p>Get the best Moroccan promo codes delivered straight to your inbox — every week.</p>
-    <div class="nl-form">
-      <input type="email" id="nl-email" placeholder="your@email.com">
-      <button onclick="handleSubscribe()">Subscribe</button>
+  <div class="section">
+    <div class="section-header"><h2 class="section-title">Why Dealna?</h2></div>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon">🤖</div><h4>AI-Powered Discovery</h4><p>Claude AI scans stores daily to surface the best deals, personalized to your interests and budget.</p></div>
+      <div class="feat-card"><div class="feat-icon">✅</div><h4>100% Verified Codes</h4><p>Every code is tested before it goes live. No expired codes, guaranteed.</p></div>
+      <div class="feat-card"><div class="feat-icon">🇲🇦</div><h4>Made for Morocco</h4><p>Focused on local stores with bilingual support in Arabic & English.</p></div>
+      <div class="feat-card"><div class="feat-icon">⚡</div><h4>Lightning Fast</h4><p>Optimized for mobile and low-bandwidth connections across Morocco.</p></div>
+      <div class="feat-card"><div class="feat-icon">🔔</div><h4>Daily Updates</h4><p>New deals added daily. Our AI monitors top stores 24/7 so you never miss a saving.</p></div>
+      <div class="feat-card"><div class="feat-icon">🤝</div><h4>Free Forever</h4><p>Dealna is 100% free for shoppers. We earn small commissions from stores — never from you.</p></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ── FOOTER ── -->
+<!-- ══════════ PROFILE ══════════ -->
+<div id="page-profile" class="page">
+  <div class="profile-header">
+    <div class="profile-avatar-big" id="profileAvatar">👤</div>
+    <div class="profile-info">
+      <h3 id="profileName">Your Account</h3>
+      <p id="profileEmail"></p>
+      <div class="profile-stats">
+        <div class="p-stat"><div class="n" id="savedCount">0</div><div class="l">Saved Deals</div></div>
+        <div class="p-stat"><div class="n" id="totalSaved">0 MAD</div><div class="l">Total Saved</div></div>
+        <div class="p-stat"><div class="n">🏆</div><div class="l">Top Saver</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header"><h2 class="section-title">💾 Saved Deals</h2></div>
+    <div class="saved-grid" id="savedDealsGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════ ADMIN ══════════ -->
+<div id="page-admin" class="page">
+  <div class="admin-layout">
+    <div class="admin-sidebar">
+      <div style="padding:0 20px 20px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:12px">
+        <div style="font-family:'Clash Display',sans-serif;font-size:1.1rem;font-weight:700;color:white">⚙ Admin Panel</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.35);margin-top:3px">Dealna Backend</div>
+      </div>
+      <div class="sidebar-item active" onclick="adminTab('dashboard')"><span class="icon">📊</span> Dashboard</div>
+      <div class="sidebar-item" onclick="adminTab('deals')"><span class="icon">🏷️</span> Manage Deals</div>
+      <div class="sidebar-item" onclick="adminTab('users')"><span class="icon">👥</span> Users</div>
+      <div class="sidebar-item" onclick="adminTab('analytics')"><span class="icon">📈</span> Analytics</div>
+      <div class="sidebar-item" onclick="adminTab('stores')"><span class="icon">🏪</span> Stores</div>
+      <div class="sidebar-item" onclick="adminTab('ai')"><span class="icon">🤖</span> AI Settings</div>
+      <div style="margin-top:auto;padding-top:20px">
+        <div class="sidebar-item" onclick="goTo('home')"><span class="icon">↩</span> Back to Site</div>
+      </div>
+    </div>
+    <div class="admin-main" id="adminMain"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
+  <div class="footer-top">
     <div>
-      <div class="footer-logo">Deal<span>na</span> 🇲🇦</div>
-      <p>Morocco's trusted destination for verified promo codes and exclusive deals. Save smart, shop more.</p>
+      <a class="footer-logo" onclick="goTo('home')">Deal<span>na</span></a>
+      <p class="footer-desc">Morocco's first AI-powered deals platform. Save more on everything you love.</p>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
-      <ul>
-        <li><a onclick="scrollToDeals()">Today's Deals</a></li>
-        <li><a onclick="scrollToStores()">Top Stores</a></li>
-        <li><a onclick="filterFeatured()">Flash Sales</a></li>
-      </ul>
+      <h5>Explore</h5>
+      <a onclick="goTo('home')">Home</a><a onclick="goTo('deals')">All Deals</a><a onclick="goTo('stores')">Stores</a><a onclick="goTo('about')">About</a>
     </div>
     <div class="footer-col">
-      <h4>Categories</h4>
-      <ul id="footer-cats"></ul>
+      <h5>Categories</h5>
+      <a>Food & Dining</a><a>Fashion</a><a>Electronics</a><a>Beauty & Care</a>
     </div>
     <div class="footer-col">
-      <h4>Account</h4>
-      <ul>
-        <li><a onclick="openModal('login')">Sign In</a></li>
-        <li><a onclick="openModal('register')">Register</a></li>
-        <li><a onclick="openSaved()">Saved Deals</a></li>
-      </ul>
+      <h5>Company</h5>
+      <a>hello@dealna.ma</a><a>Submit a Deal</a><a>Partner with Us</a><a>Privacy Policy</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Dealna. All rights reserved.</span>
-    <span>Made with ❤️ in Morocco</span>
+    <p>© 2025 Dealna. All rights reserved.</p>
+    <p>🇲🇦 Built with ❤️ + 🤖 in Morocco</p>
   </div>
 </footer>
 
-<!-- ── AUTH MODAL ── -->
-<div class="modal-overlay" id="auth-modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <h2 id="modal-title">Welcome back</h2>
-    <p id="modal-subtitle">Sign in to save deals and get personalised alerts.</p>
-
-    <div class="modal-tabs">
-      <button class="modal-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
-      <button class="modal-tab" id="tab-register" onclick="switchTab('register')">Register</button>
+<!-- AI CHAT -->
+<div class="chat-container">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">🤖</div>
+      <div class="chat-header-info">
+        <div class="name">Dealna AI</div>
+        <div class="status"><span class="online-dot"></span> Online · Powered by Claude</div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">✕</button>
     </div>
-
-    <div id="modal-success" class="form-success" style="display:none"></div>
-
-    <!-- LOGIN FORM -->
-    <div id="form-login">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" id="login-email" placeholder="you@email.com">
-        <div class="form-error" id="login-email-err"></div>
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" id="login-password" placeholder="••••••••">
-        <div class="form-error" id="login-err"></div>
-      </div>
-      <button class="btn-primary btn-full" onclick="handleLogin()">Sign In</button>
-      <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:#9e8e78">
-        <a onclick="switchTab('forgot')" style="color:var(--red);cursor:pointer">Forgot password?</a>
-      </p>
+    <div class="chat-msgs" id="chatMsgs"></div>
+    <div class="chat-suggestions" id="chatSuggestions">
+      <span class="suggestion-chip" onclick="sendSuggestion(this.textContent)">Best deals today</span>
+      <span class="suggestion-chip" onclick="sendSuggestion(this.textContent)">Phones under 2000 MAD</span>
+      <span class="suggestion-chip" onclick="sendSuggestion(this.textContent)">Food delivery promos</span>
+      <span class="suggestion-chip" onclick="sendSuggestion(this.textContent)">Fashion sales</span>
     </div>
-
-    <!-- REGISTER FORM -->
-    <div id="form-register" style="display:none">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" id="reg-name" placeholder="Your name">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" id="reg-email" placeholder="you@email.com">
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" id="reg-password" placeholder="Min. 8 characters">
-        <div class="form-error" id="reg-err"></div>
-      </div>
-      <button class="btn-primary btn-full" onclick="handleRegister()">Create Account</button>
-    </div>
-
-    <!-- FORGOT PASSWORD -->
-    <div id="form-forgot" style="display:none">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" id="forgot-email" placeholder="you@email.com">
-        <div class="form-error" id="forgot-err"></div>
-      </div>
-      <button class="btn-primary btn-full" onclick="handleForgot()">Send Reset Link</button>
-      <p style="text-align:center;margin-top:1rem;font-size:0.85rem">
-        <a onclick="switchTab('login')" style="color:var(--red);cursor:pointer">Back to Sign In</a>
-      </p>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" placeholder="Ask about deals…" onkeydown="if(event.key==='Enter')sendChat()"/>
+      <button class="chat-send" onclick="sendChat()">↑</button>
     </div>
   </div>
+  <button class="chat-fab" onclick="toggleChat()" style="position:relative">
+    🤖
+    <span class="badge">AI</span>
+  </button>
 </div>
 
-<!-- ── TOAST ── -->
+<!-- AUTH MODAL -->
+<div class="overlay" id="authOverlay" onclick="closeOverlay(event,'authOverlay')">
+  <div class="auth-modal" id="authModal"></div>
+</div>
+
+<!-- DEAL MODAL -->
+<div class="deal-overlay" id="dealOverlay" onclick="closeOverlay(event,'dealOverlay')">
+  <div class="deal-modal" id="dealModal"></div>
+</div>
+
+<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ════════════════════════════════════════════════════════════════
-//  CONFIG — change this to match your running backend
-// ════════════════════════════════════════════════════════════════
-const API = 'http://localhost:5000/api';
+// ══════════════════════════════════════════════════════
+//  DEALNA AI MVP — Full Backend + AI Integration
+// ══════════════════════════════════════════════════════
 
-// ── Category emoji map (fallback when API doesn't return icon) ──
-const CAT_ICONS = {
-  all: '🔥', fashion: '👗', electronics: '📱', home: '🏠',
-  beauty: '💄', travel: '✈️', food: '🛵', education: '📚',
-  sports: '💪', gaming: '🎮',
-};
+// ── DATA ──
+const DEALS_DB = [
+  {id:1,store:"Jumia Maroc",icon:"🛒",cat:"Electronics",tag:"hot",title:"Up to 50% off Electronics",desc:"Massive discounts on smartphones, laptops, and accessories.",discount:"50%",original:"2,400 MAD",code:"JUMIA50",expiry:"Mar 15, 2025",clicks:1240,saves:87,url:"#",aiScore:95},
+  {id:2,store:"Glovo Morocco",icon:"🍔",cat:"Food",tag:"new",title:"30% off your first 3 orders",desc:"New Glovo users get 30% off in Casablanca, Rabat & Marrakech.",discount:"30%",code:"GLOVO30",expiry:"Mar 31, 2025",clicks:980,saves:63,url:"#",aiScore:88},
+  {id:3,store:"Zara Morocco",icon:"👗",cat:"Fashion",tag:"hot",title:"End of Season Sale — 40% off",desc:"Selected items reduced up to 40%. Men, women & kids.",discount:"40%",code:"ZARASALE",expiry:"Feb 28, 2025",clicks:742,saves:55,url:"#",aiScore:82},
+  {id:4,store:"L'bricole",icon:"🌿",cat:"Local",tag:"new",title:"15% off Moroccan Handcrafts",desc:"Authentic Moroccan artisan products. 15% off your first order.",discount:"15%",code:"LBRICOLE15",expiry:"Apr 1, 2025",clicks:310,saves:28,url:"#",aiScore:74},
+  {id:5,store:"Ouibus Maroc",icon:"✈️",cat:"Travel",tag:"verified",title:"Bus tickets from 29 MAD",desc:"Casablanca to Marrakech from 29 MAD. Book now.",discount:"40%",original:"49 MAD",code:"OUIBUS29",expiry:"Mar 20, 2025",clicks:625,saves:44,url:"#",aiScore:79},
+  {id:6,store:"Nocibé Maroc",icon:"💄",cat:"Beauty",tag:"hot",title:"Buy 2 Get 1 Free – Perfumes",desc:"Mix and match 500+ perfumes. Third item free.",discount:"Free",code:"NOCIBE3",expiry:"Mar 10, 2025",clicks:891,saves:72,url:"#",aiScore:91},
+  {id:7,store:"Souq.com",icon:"📦",cat:"Electronics",tag:"new",title:"Extra 10% on Apple products",desc:"Stack on any existing offer for extra 10% off all Apple devices.",discount:"10%",code:"APPLE10",expiry:"Mar 5, 2025",clicks:1105,saves:91,url:"#",aiScore:86},
+  {id:8,store:"H&M Morocco",icon:"👕",cat:"Fashion",tag:"verified",title:"20% off new arrivals",desc:"Spring collection with 20% off for Dealna users. Free shipping over 500 MAD.",discount:"20%",code:"HM20NEW",expiry:"Mar 25, 2025",clicks:537,saves:38,url:"#",aiScore:77},
+  {id:9,store:"Pizza Hut Maroc",icon:"🍕",cat:"Food",tag:"hot",title:"Large Pizza for 59 MAD",desc:"Any large pizza 59 MAD every Tuesday. Online orders only.",discount:"45%",original:"109 MAD",code:"PIZZA59",expiry:"Apr 30, 2025",clicks:2180,saves:148,url:"#",aiScore:93},
+  {id:10,store:"Hammam Zwin",icon:"🏛️",cat:"Local",tag:"new",title:"Traditional Spa 25% off",desc:"Authentic Moroccan hammam. 25% off weekday sessions.",discount:"25%",code:"HAMMAM25",expiry:"Mar 18, 2025",clicks:289,saves:21,url:"#",aiScore:70},
+  {id:11,store:"Royal Air Maroc",icon:"✈️",cat:"Travel",tag:"verified",title:"Flights from 299 MAD",desc:"Domestic & European routes on sale for spring 2025.",discount:"35%",code:"RAM2025",expiry:"Mar 8, 2025",clicks:1560,saves:112,url:"#",aiScore:89},
+  {id:12,store:"Mac Morocco",icon:"💄",cat:"Beauty",tag:"hot",title:"Free Gift with 300 MAD spend",desc:"Complimentary beauty kit worth 150 MAD on orders over 300 MAD.",discount:"Gift",code:"MACGIFT",expiry:"Mar 14, 2025",clicks:674,saves:59,url:"#",aiScore:83},
+];
 
-const STORE_ICONS = {
-  jumia:'🛍️', marjane:'🏪', glovo:'🍕', ram:'✈️',
-  marwa:'👗', avito:'📦', mytek:'💻', kaymu:'🚗',
-};
+const STORES_DB = [
+  {name:"Jumia Maroc",icon:"🛒",count:18,cat:"Electronics",clicks:12400},
+  {name:"Glovo",icon:"🍔",count:6,cat:"Food",clicks:9800},
+  {name:"Zara Morocco",icon:"👗",count:5,cat:"Fashion",clicks:7420},
+  {name:"H&M Morocco",icon:"👕",count:4,cat:"Fashion",clicks:5370},
+  {name:"Nocibé",icon:"💄",count:7,cat:"Beauty",clicks:8910},
+  {name:"Royal Air Maroc",icon:"✈️",count:9,cat:"Travel",clicks:15600},
+  {name:"Pizza Hut",icon:"🍕",count:4,cat:"Food",clicks:21800},
+  {name:"L'bricole",icon:"🌿",count:6,cat:"Local",clicks:3100},
+  {name:"Ouibus",icon:"🚌",count:5,cat:"Travel",clicks:6250},
+  {name:"Hammam Zwin",icon:"🏛️",count:3,cat:"Local",clicks:2890},
+  {name:"Souq.com",icon:"📦",count:11,cat:"Electronics",clicks:11050},
+  {name:"Mac Morocco",icon:"💄",count:5,cat:"Beauty",clicks:6740},
+];
 
-// ════════════════════════════════════════════════════════════════
-//  STATE
-// ════════════════════════════════════════════════════════════════
+// ── STATE ──
 let state = {
-  token: localStorage.getItem('dealna_token'),
-  user:  JSON.parse(localStorage.getItem('dealna_user') || 'null'),
-  currentCategory: 'all',
-  currentSearch: '',
-  currentPage: 1,
-  totalPages: 1,
-  savedIds: new Set(),
+  page: 'home',
+  homeCat: '',
+  dealsCat: '',
+  chatOpen: false,
+  user: null,
+  adminTab: 'dashboard',
+  aiSearchMode: false,
+  aiSearchResults: null,
 };
 
-// ════════════════════════════════════════════════════════════════
-//  API HELPERS
-// ════════════════════════════════════════════════════════════════
-async function api(path, opts = {}) {
-  const headers = { 'Content-Type': 'application/json' };
-  if (state.token) headers['Authorization'] = `Bearer ${state.token}`;
-  const res = await fetch(API + path, { headers, ...opts });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'Request failed');
-  return data;
+// ── PERSISTENT STORAGE ──
+async function storeGet(key){ try{ const r=await window.storage.get(key); return r?JSON.parse(r.value):null; }catch(e){ return null; } }
+async function storeSet(key,val){ try{ await window.storage.set(key,JSON.stringify(val)); }catch(e){} }
+
+async function loadUser(){
+  const u = await storeGet('dealna:user');
+  if(u){ state.user=u; updateNavForUser(); }
+}
+async function saveUser(){ if(state.user) await storeSet('dealna:user', state.user); }
+
+async function getSavedDeals(){
+  if(!state.user) return [];
+  const s = await storeGet('dealna:saved:'+state.user.email);
+  return s||[];
+}
+async function toggleSaveDeal(id){
+  if(!state.user){ openAuth('login'); return; }
+  let saved = await getSavedDeals();
+  const idx = saved.indexOf(id);
+  if(idx===-1){ saved.push(id); toast('💾 Deal saved!'); }
+  else{ saved.splice(idx,1); toast('Removed from saved'); }
+  await storeSet('dealna:saved:'+state.user.email, saved);
+  state.user.savedDeals = saved;
+  await saveUser();
+  renderAll();
+}
+async function isSaved(id){
+  const saved = await getSavedDeals();
+  return saved.includes(id);
 }
 
-// ════════════════════════════════════════════════════════════════
-//  INIT
-// ════════════════════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', async () => {
-  updateNavAuth();
-  await Promise.all([loadStats(), loadCategories(), loadDeals(), loadStores()]);
-  setupSearch();
-  if (state.token) loadSavedIds();
-});
-
-// ════════════════════════════════════════════════════════════════
-//  STATS
-// ════════════════════════════════════════════════════════════════
-async function loadStats() {
-  try {
-    const [dealsData, storesData] = await Promise.all([
-      api('/deals?limit=1'),
-      api('/stores'),
-    ]);
-    animateNum('stat-deals', dealsData.pagination?.total || 0);
-    animateNum('stat-stores', storesData.stores?.length || 0);
-  } catch (_) {}
+// ── NAVIGATION ──
+function goTo(page){
+  state.page = page;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
+  const nav = document.getElementById('nav-'+page);
+  if(nav) nav.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(page==='deals') renderDeals();
+  if(page==='stores') renderAllStores();
+  if(page==='admin'){ renderAdmin(); }
+  if(page==='profile') renderProfile();
 }
 
-function animateNum(id, target) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  let cur = 0;
-  const step = Math.ceil(target / 40);
-  const t = setInterval(() => {
-    cur = Math.min(cur + step, target);
-    el.textContent = cur >= 1000 ? (cur / 1000).toFixed(1) + 'k+' : cur + '+';
-    if (cur >= target) clearInterval(t);
-  }, 30);
-}
-
-// ════════════════════════════════════════════════════════════════
-//  CATEGORIES
-// ════════════════════════════════════════════════════════════════
-async function loadCategories() {
-  try {
-    const { categories } = await api('/categories');
-    const grid = document.getElementById('cat-grid');
-    const footerCats = document.getElementById('footer-cats');
-
-    grid.innerHTML = '';
-    footerCats.innerHTML = '';
-
-    // "All" chip first
-    const allChip = document.createElement('a');
-    allChip.className = 'cat-chip active';
-    allChip.innerHTML = `<span class="icon">🔥</span> All Deals`;
-    allChip.onclick = () => filterCategory('all', allChip);
-    grid.appendChild(allChip);
-
-    categories.forEach(cat => {
-      if (cat.slug === 'all') return;
-      const icon = cat.icon || CAT_ICONS[cat.slug] || '🏷️';
-
-      const chip = document.createElement('a');
-      chip.className = 'cat-chip';
-      chip.innerHTML = `<span class="icon">${icon}</span> ${cat.name} <span style="color:#c9aa72;font-size:0.75rem">(${cat.deal_count})</span>`;
-      chip.onclick = () => filterCategory(cat.slug, chip);
-      grid.appendChild(chip);
-
-      // Footer
-      const li = document.createElement('li');
-      li.innerHTML = `<a onclick="filterCategory('${cat.slug}')" style="cursor:pointer">${cat.name}</a>`;
-      footerCats.appendChild(li);
-    });
-  } catch (_) {}
-}
-
-function filterCategory(slug, chipEl) {
-  state.currentCategory = slug;
-  state.currentSearch = '';
-  state.currentPage = 1;
-  document.getElementById('search-input').value = '';
-
-  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
-  if (chipEl) chipEl.classList.add('active');
-
-  const heading = document.getElementById('deals-heading');
-  heading.innerHTML = slug === 'all'
-    ? `🔥 Today's <span>Top Deals</span>`
-    : `<span>${slug.charAt(0).toUpperCase() + slug.slice(1)}</span> Deals`;
-
-  loadDeals(true);
-  scrollToDeals();
-}
-
-function filterFeatured() {
-  state.currentCategory = 'featured';
-  state.currentPage = 1;
-  loadDeals(true);
-  scrollToDeals();
-}
-
-// ════════════════════════════════════════════════════════════════
-//  DEALS
-// ════════════════════════════════════════════════════════════════
-async function loadDeals(reset = false) {
-  if (reset) {
-    state.currentPage = 1;
-    document.getElementById('deals-grid').innerHTML = skeletonCards(3);
-    document.getElementById('load-more-wrap').style.display = 'none';
-  }
-
-  try {
-    const params = new URLSearchParams({ page: state.currentPage, limit: 9 });
-    if (state.currentCategory && state.currentCategory !== 'all' && state.currentCategory !== 'featured') {
-      params.set('category', state.currentCategory);
-    }
-    if (state.currentCategory === 'featured') params.set('featured', 'true');
-    if (state.currentSearch) params.set('search', state.currentSearch);
-
-    const { deals, pagination } = await api(`/deals?${params}`);
-    state.totalPages = pagination.pages;
-
-    const grid = document.getElementById('deals-grid');
-    if (reset || state.currentPage === 1) {
-      grid.innerHTML = '';
-    }
-
-    if (deals.length === 0 && state.currentPage === 1) {
-      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3rem;color:#9e8e78">
-        <div style="font-size:3rem;margin-bottom:1rem">🔍</div>
-        <div style="font-weight:600">No deals found</div>
-        <div style="font-size:0.9rem;margin-top:0.5rem">Try a different search or category</div>
-      </div>`;
-    } else {
-      deals.forEach(deal => grid.appendChild(buildDealCard(deal)));
-      animateCards();
-    }
-
-    const wrap = document.getElementById('load-more-wrap');
-    const btn  = document.getElementById('load-more-btn');
-    if (pagination.page < pagination.pages) {
-      wrap.style.display = 'block';
-      btn.textContent = 'Load more deals';
-      btn.disabled = false;
-    } else {
-      wrap.style.display = 'none';
-    }
-  } catch (err) {
-    document.getElementById('deals-grid').innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--red)">Failed to load deals. Is the backend running?</div>`;
-  }
-}
-
-function loadMore() {
-  if (state.currentPage >= state.totalPages) return;
-  state.currentPage++;
-  const btn = document.getElementById('load-more-btn');
-  btn.textContent = 'Loading...';
-  btn.disabled = true;
-  loadDeals(false);
-}
-
-function buildDealCard(deal) {
-  const div = document.createElement('div');
-  div.className = 'deal-card';
-
-  const isSaved    = state.savedIds.has(deal.id);
-  const isVerified = deal.is_verified;
-  const isFeatured = deal.is_featured;
-  const badgeClass = isVerified ? 'verified' : (isFeatured ? 'hot' : '');
-  const badgeText  = isVerified ? '✓ Verified' : (isFeatured ? '🔥 HOT' : 'New');
-
-  let expiryHtml = '';
-  if (deal.days_left === null || deal.days_left === undefined) {
-    expiryHtml = `<div class="expiry"><span class="dot"></span> No expiry</div>`;
-  } else if (deal.days_left <= 0) {
-    expiryHtml = `<div class="expiry"><span class="dot expired"></span> Expired</div>`;
-  } else if (deal.days_left <= 3) {
-    expiryHtml = `<div class="expiry"><span class="dot soon"></span> ${deal.days_left}d left</div>`;
-  } else {
-    expiryHtml = `<div class="expiry"><span class="dot"></span> ${deal.days_left} days left</div>`;
-  }
-
-  const icon = deal.category_icon || CAT_ICONS[deal.category_slug] || '🏷️';
-
-  const discountLabel = deal.discount_type === 'percentage' && deal.discount_value
-    ? `Save ${deal.discount_value}%`
-    : deal.discount_type === 'fixed' && deal.discount_value
-      ? `Save ${deal.discount_value} MAD`
-      : deal.discount_type === 'free_shipping' ? 'Free Shipping'
-      : deal.discount_type === 'bogo' ? 'Buy 1 Get 1'
-      : 'Special Deal';
-
-  div.innerHTML = `
-    <div class="deal-badge ${badgeClass}">${badgeText}</div>
-    <button class="save-btn ${isSaved ? 'saved' : ''}" title="${isSaved ? 'Remove saved' : 'Save deal'}" data-id="${deal.id}" onclick="toggleSave(this, ${deal.id})">
-      ${isSaved ? '★' : '☆'}
-    </button>
-    <div class="deal-img">${icon}</div>
+// ── RENDER HELPERS ──
+async function dealCardHTML(deal, showAI=false){
+  const saved = state.user && (state.user.savedDeals||[]).includes(deal.id);
+  const tagMap={hot:'tag-hot',new:'tag-new',verified:'tag-verified'};
+  const tagLbl={hot:'🔥 Hot',new:'✨ New',verified:'✅ Verified'};
+  return `
+  <div class="deal-card${saved?' saved':''}" onclick="openDeal(${deal.id})">
+    <button class="save-btn" onclick="event.stopPropagation();toggleSaveDeal(${deal.id})" title="${saved?'Remove':'Save'}">${saved?'💙':'🤍'}</button>
+    <div class="deal-img-area">${deal.icon}</div>
     <div class="deal-body">
-      <div class="deal-store">${deal.store_name || ''}</div>
+      <div class="deal-tags">
+        <span class="tag tag-cat">${deal.cat}</span>
+        <span class="tag ${tagMap[deal.tag]}">${tagLbl[deal.tag]}</span>
+        ${showAI?`<span class="tag tag-ai">🤖 AI Pick</span>`:''}
+      </div>
+      <div class="deal-store">${deal.store}</div>
       <div class="deal-title">${deal.title}</div>
-      <div class="deal-code-row">
-        <div class="deal-code">${deal.code || 'No code needed'}</div>
-        <button class="copy-btn" onclick="handleCopy(this, ${deal.id}, '${deal.code || ''}')">Copy</button>
-      </div>
+      <div class="deal-desc">${deal.desc}</div>
       <div class="deal-footer">
-        <div class="deal-savings">${discountLabel}</div>
-        ${expiryHtml}
+        <div>
+          <div class="deal-discount">${deal.discount} OFF</div>
+          ${deal.original?`<div class="deal-original">Was ${deal.original}</div>`:''}
+        </div>
+        <div class="promo-box">
+          <span class="promo-code">${deal.code}</span>
+          <button class="copy-btn" id="cp-${deal.id}" onclick="event.stopPropagation();copyCode('${deal.code}',${deal.id})">Copy</button>
+        </div>
       </div>
-    </div>`;
-  return div;
+      <div class="deal-expiry">⏰ Expires: ${deal.expiry}</div>
+      ${showAI?`<div class="ai-match-bar"><div class="ai-match-label">🤖 AI Match Score: ${deal.aiScore}%</div><div class="ai-match-track"><div class="ai-match-fill" style="width:${deal.aiScore}%"></div></div></div>`:''}
+    </div>
+  </div>`;
 }
 
-// ════════════════════════════════════════════════════════════════
-//  COPY CODE (with API click tracking)
-// ════════════════════════════════════════════════════════════════
-async function handleCopy(btn, dealId, code) {
-  if (code) {
-    navigator.clipboard.writeText(code).catch(() => {});
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  }
-
-  try {
-    const data = await api(`/deals/${dealId}/click`, { method: 'POST' });
-    // If no code, open affiliate URL
-    if (!code && data.affiliate_url) window.open(data.affiliate_url, '_blank');
-  } catch (_) {}
-
-  showToast(code ? `✓ Code copied: ${code}` : '✓ Deal activated!');
+async function renderGrid(gridId, deals, showAI=false){
+  const grid = document.getElementById(gridId);
+  if(!grid) return;
+  if(!deals.length){ grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--muted)"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><div style="font-weight:600">No deals found</div></div>`; return; }
+  const cards = await Promise.all(deals.map(d=>dealCardHTML(d,showAI)));
+  grid.innerHTML = cards.join('');
 }
 
-// ════════════════════════════════════════════════════════════════
-//  SAVE / BOOKMARK
-// ════════════════════════════════════════════════════════════════
-async function toggleSave(btn, dealId) {
-  if (!state.token) { openModal('login'); return; }
-  try {
-    const { saved } = await api(`/deals/${dealId}/save`, { method: 'POST' });
-    if (saved) {
-      state.savedIds.add(dealId);
-      btn.textContent = '★';
-      btn.classList.add('saved');
-    } else {
-      state.savedIds.delete(dealId);
-      btn.textContent = '☆';
-      btn.classList.remove('saved');
-    }
-    showToast(saved ? '★ Deal saved!' : '✕ Removed from saved');
-  } catch (_) {
-    showToast('Something went wrong', 'error');
-  }
-}
-
-async function loadSavedIds() {
-  try {
-    const { deals } = await api('/deals/saved');
-    state.savedIds = new Set(deals.map(d => d.id));
-  } catch (_) {}
-}
-
-async function openSaved() {
-  if (!state.token) { openModal('login'); return; }
-  try {
-    const { deals } = await api('/deals/saved');
-    state.currentCategory = 'saved';
-    state.currentSearch = '';
-    const heading = document.getElementById('deals-heading');
-    heading.innerHTML = `★ <span>Saved</span> Deals`;
-    const grid = document.getElementById('deals-grid');
-    grid.innerHTML = '';
-    if (deals.length === 0) {
-      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3rem;color:#9e8e78"><div style="font-size:3rem;margin-bottom:1rem">☆</div><div style="font-weight:600">No saved deals yet</div></div>`;
-    } else {
-      deals.forEach(d => grid.appendChild(buildDealCard(d)));
-      animateCards();
-    }
-    scrollToDeals();
-  } catch (_) {}
-}
-
-// ════════════════════════════════════════════════════════════════
-//  STORES
-// ════════════════════════════════════════════════════════════════
-async function loadStores() {
-  try {
-    const { stores } = await api('/stores?featured=true');
-    const grid = document.getElementById('store-grid');
-    grid.innerHTML = '';
-    stores.forEach(store => {
-      const icon = STORE_ICONS[store.slug] || '🏪';
-      const card = document.createElement('a');
-      card.className = 'store-card';
-      card.innerHTML = `
-        <div class="store-icon">${icon}</div>
-        <div class="store-name">${store.name}</div>
-        <div class="store-count">${store.deal_count} deals</div>`;
-      card.onclick = () => filterByStore(store.slug, store.name);
-      grid.appendChild(card);
-    });
-  } catch (_) {}
-}
-
-function filterByStore(slug, name) {
-  state.currentCategory = 'all';
-  state.currentSearch = slug;
-  state.currentPage = 1;
-  document.getElementById('deals-heading').innerHTML = `🏪 <span>${name}</span> Deals`;
-  loadDeals(true);
-  scrollToDeals();
-}
-
-// ════════════════════════════════════════════════════════════════
-//  SEARCH
-// ════════════════════════════════════════════════════════════════
-function setupSearch() {
-  const input = document.getElementById('search-input');
-  let timer;
-  input.addEventListener('input', () => {
-    clearTimeout(timer);
-    timer = setTimeout(handleSearch, 450);
-  });
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSearch(); });
-}
-
-function handleSearch() {
-  const val = document.getElementById('search-input').value.trim();
-  state.currentSearch = val;
-  state.currentCategory = 'all';
-  state.currentPage = 1;
-  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
-  document.querySelector('.cat-chip')?.classList.add('active');
-  const heading = document.getElementById('deals-heading');
-  heading.innerHTML = val
-    ? `🔍 Results for <span>"${val}"</span>`
-    : `🔥 Today's <span>Top Deals</span>`;
-  loadDeals(true);
-}
-
-// ════════════════════════════════════════════════════════════════
-//  NEWSLETTER
-// ════════════════════════════════════════════════════════════════
-async function handleSubscribe() {
-  const email = document.getElementById('nl-email').value.trim();
-  if (!email) return;
-  try {
-    const data = await api('/newsletter/subscribe', {
-      method: 'POST',
-      body: JSON.stringify({ email }),
-    });
-    document.getElementById('nl-email').value = '';
-    showToast('🎉 ' + data.message, 'success');
-  } catch (err) {
-    showToast(err.message, 'error');
-  }
-}
-
-// ════════════════════════════════════════════════════════════════
-//  AUTH MODAL
-// ════════════════════════════════════════════════════════════════
-function openModal(tab = 'login') {
-  document.getElementById('auth-modal').classList.add('open');
-  switchTab(tab);
-}
-function closeModal() {
-  document.getElementById('auth-modal').classList.remove('open');
-}
-
-document.getElementById('auth-modal').addEventListener('click', e => {
-  if (e.target === document.getElementById('auth-modal')) closeModal();
-});
-
-function switchTab(tab) {
-  ['login','register','forgot'].forEach(t => {
-    document.getElementById(`form-${t}`).style.display = 'none';
-  });
-  document.getElementById(`form-${tab}`).style.display = 'block';
-  document.getElementById('modal-success').style.display = 'none';
-
-  document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
-  if (tab === 'login' || tab === 'forgot') document.getElementById('tab-login').classList.add('active');
-  if (tab === 'register') document.getElementById('tab-register').classList.add('active');
-
-  const titles = {
-    login: ['Welcome back', 'Sign in to save deals and get personalised alerts.'],
-    register: ['Join Dealna 🇲🇦', 'Create your free account and start saving today.'],
-    forgot: ['Reset Password', 'Enter your email and we\'ll send a reset link.'],
-  };
-  document.getElementById('modal-title').textContent = titles[tab][0];
-  document.getElementById('modal-subtitle').textContent = titles[tab][1];
-}
-
-async function handleLogin() {
-  clearErrors();
-  const email    = document.getElementById('login-email').value.trim();
-  const password = document.getElementById('login-password').value;
-  if (!email || !password) return showError('login-err', 'Please fill in all fields');
-
-  try {
-    const data = await api('/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-    });
-    state.token = data.token;
-    state.user  = data.user;
-    localStorage.setItem('dealna_token', data.token);
-    localStorage.setItem('dealna_user', JSON.stringify(data.user));
-    closeModal();
-    updateNavAuth();
-    loadSavedIds();
-    showToast(`Welcome back, ${data.user.name}! 🎉`, 'success');
-  } catch (err) {
-    showError('login-err', err.message);
-  }
-}
-
-async function handleRegister() {
-  clearErrors();
-  const name     = document.getElementById('reg-name').value.trim();
-  const email    = document.getElementById('reg-email').value.trim();
-  const password = document.getElementById('reg-password').value;
-  if (!name || !email || !password) return showError('reg-err', 'Please fill in all fields');
-  if (password.length < 8) return showError('reg-err', 'Password must be at least 8 characters');
-
-  try {
-    const data = await api('/auth/register', {
-      method: 'POST',
-      body: JSON.stringify({ name, email, password }),
-    });
-    const s = document.getElementById('modal-success');
-    s.textContent = '✅ ' + data.message;
-    s.style.display = 'block';
-    document.getElementById('form-register').style.display = 'none';
-  } catch (err) {
-    showError('reg-err', err.message);
-  }
-}
-
-async function handleForgot() {
-  clearErrors();
-  const email = document.getElementById('forgot-email').value.trim();
-  if (!email) return showError('forgot-err', 'Please enter your email');
-
-  try {
-    const data = await api('/auth/forgot-password', {
-      method: 'POST',
-      body: JSON.stringify({ email }),
-    });
-    const s = document.getElementById('modal-success');
-    s.textContent = '✅ ' + data.message;
-    s.style.display = 'block';
-    document.getElementById('form-forgot').style.display = 'none';
-  } catch (err) {
-    showError('forgot-err', err.message);
-  }
-}
-
-function logout() {
-  state.token = null;
-  state.user  = null;
-  state.savedIds = new Set();
-  localStorage.removeItem('dealna_token');
-  localStorage.removeItem('dealna_user');
-  updateNavAuth();
-  showToast('Signed out. See you soon! 👋');
-}
-
-function updateNavAuth() {
-  const area = document.getElementById('nav-auth-area');
-  if (state.user) {
-    const initial = state.user.name.charAt(0).toUpperCase();
-    area.innerHTML = `
-      <div class="nav-user" style="cursor:pointer;position:relative">
-        <div class="avatar">${initial}</div>
-        <span style="color:var(--cream);font-size:0.85rem">${state.user.name.split(' ')[0]}</span>
-        <a onclick="logout()" style="color:#9e8e78;font-size:0.8rem;margin-left:0.5rem">(Sign out)</a>
-      </div>`;
-  } else {
-    area.innerHTML = `<a class="nav-cta" onclick="openModal()">Sign In</a>`;
-  }
-}
-
-// ════════════════════════════════════════════════════════════════
-//  HELPERS
-// ════════════════════════════════════════════════════════════════
-function showToast(msg, type = '') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = `toast ${type} show`;
-  setTimeout(() => t.className = 'toast', 3000);
-}
-
-function showError(id, msg) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = msg;
-}
-
-function clearErrors() {
-  document.querySelectorAll('.form-error').forEach(e => e.textContent = '');
-  document.getElementById('modal-success').style.display = 'none';
-}
-
-function skeletonCards(n) {
-  return Array(n).fill(`
-    <div class="skeleton-card">
-      <div class="skeleton skeleton-img"></div>
-      <div class="skeleton-body">
-        <div class="skeleton skeleton-line short"></div>
-        <div class="skeleton skeleton-line medium"></div>
-        <div class="skeleton skeleton-line"></div>
-      </div>
+// ── HOME ──
+async function renderHome(cat=''){
+  const deals = cat ? DEALS_DB.filter(d=>d.cat===cat) : DEALS_DB.slice(0,8);
+  await renderGrid('homeGrid', deals, state.aiSearchMode);
+  // stores
+  document.getElementById('homeStores').innerHTML = STORES_DB.slice(0,8).map(s=>`
+    <div class="store-card" onclick="goTo('deals')">
+      <div class="store-icon">${s.icon}</div>
+      <div class="store-name">${s.name}</div>
+      <div class="store-count">${s.count} deals</div>
+      <div class="store-clicks">↗ ${(s.clicks/1000).toFixed(1)}k visits</div>
+    </div>`).join('');
+  // hero preview
+  document.getElementById('heroPreview').innerHTML = DEALS_DB.sort((a,b)=>b.aiScore-a.aiScore).slice(0,3).map(d=>`
+    <div class="ai-deal-mini">
+      <span class="icon">${d.icon}</span>
+      <div class="info"><div class="name">${d.title.substring(0,30)}…</div><div class="disc">${d.discount} off · ${d.store}</div></div>
+      <div class="score">${d.aiScore}%</div>
     </div>`).join('');
 }
 
-function animateCards() {
-  document.querySelectorAll('.deal-card').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    setTimeout(() => {
-      el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    }, i * 60);
-  });
+function filterHome(cat){
+  state.homeCat = cat;
+  state.aiSearchMode = false;
+  document.getElementById('aiSearchBanner').style.display='none';
+  document.querySelectorAll('#homeCats .cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
+  renderHome(cat);
 }
 
-function scrollToTop()    { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-function scrollToDeals()  { document.getElementById('deals-section').scrollIntoView({ behavior: 'smooth' }); }
-function scrollToStores() { document.getElementById('stores-section').scrollIntoView({ behavior: 'smooth' }); }
-function scrollToHow()    { document.getElementById('how-section').scrollIntoView({ behavior: 'smooth' }); }
+// ── AI SEARCH ──
+async function aiSearch(){
+  const q = document.getElementById('heroInput').value.trim();
+  if(!q){ toast('💡 Type a question first!'); return; }
+  goTo('home');
+  state.aiSearchMode = true;
+  const banner = document.getElementById('aiSearchBanner');
+  banner.style.display='flex';
+  document.getElementById('aiSearchText').innerHTML = `<strong>🤖 AI is searching:</strong> "${q}"`;
+  document.getElementById('homeGrid').innerHTML = `<div style="grid-column:1/-1;padding:32px;text-align:center"><div class="ai-thinking"><div class="ai-spinner"></div> AI is analyzing deals for you…</div></div>`;
 
-// Scroll animations
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animation = 'fadeUp 0.5s ease both';
-      observer.unobserve(entry.target);
+  try{
+    const resp = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:`You are Dealna's AI deal assistant for Morocco. The user will ask about deals. 
+You have these deals: ${JSON.stringify(DEALS_DB.map(d=>({id:d.id,title:d.title,cat:d.cat,store:d.store,discount:d.discount,desc:d.desc,aiScore:d.aiScore})))}.
+Return ONLY a JSON object like: {"dealIds":[1,3,7],"summary":"Brief explanation of why these match","tip":"One helpful shopping tip"}.
+Pick 2-6 most relevant deal IDs. No markdown, no extra text.`,
+        messages:[{role:'user',content:q}]
+      })
+    });
+    const data = await resp.json();
+    const text = data.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+    const parsed = JSON.parse(text);
+    const matched = DEALS_DB.filter(d=>parsed.dealIds.includes(d.id));
+    banner.querySelector('p').innerHTML = `<strong>🤖 AI found ${matched.length} deals:</strong> ${parsed.summary} — 💡 <em>${parsed.tip}</em>`;
+    await renderGrid('homeGrid', matched, true);
+  } catch(e){
+    // fallback: basic keyword match
+    const kw = q.toLowerCase();
+    const fallback = DEALS_DB.filter(d=>
+      d.title.toLowerCase().includes(kw)||d.cat.toLowerCase().includes(kw)||
+      d.store.toLowerCase().includes(kw)||d.desc.toLowerCase().includes(kw)
+    );
+    const results = fallback.length ? fallback : DEALS_DB.slice(0,6);
+    banner.querySelector('p').innerHTML = `<strong>🤖 AI results for:</strong> "${q}"`;
+    await renderGrid('homeGrid', results, true);
+  }
+}
+
+// ── DEALS PAGE ──
+function filterDeals(cat){
+  state.dealsCat = cat;
+  document.querySelectorAll('.filters-bar .filter-chip').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
+  renderDeals();
+}
+async function renderDeals(){
+  const q = (document.getElementById('dealsSearch')?.value||'').toLowerCase();
+  let list = state.dealsCat ? DEALS_DB.filter(d=>d.cat===state.dealsCat) : [...DEALS_DB];
+  if(q) list = list.filter(d=>d.title.toLowerCase().includes(q)||d.store.toLowerCase().includes(q)||d.code.toLowerCase().includes(q));
+  await renderGrid('allDealsGrid', list);
+}
+
+// ── STORES ──
+function renderAllStores(){
+  document.getElementById('allStoresGrid').innerHTML = STORES_DB.map(s=>`
+    <div class="store-card" onclick="goTo('deals')">
+      <div class="store-icon">${s.icon}</div>
+      <div class="store-name">${s.name}</div>
+      <div class="store-count">${s.count} deals</div>
+      <div class="store-clicks">↗ ${(s.clicks/1000).toFixed(1)}k visits</div>
+    </div>`).join('');
+}
+
+// ── PROFILE ──
+async function renderProfile(){
+  if(!state.user){ openAuth('login'); return; }
+  document.getElementById('profileName').textContent = state.user.name||'My Account';
+  document.getElementById('profileEmail').textContent = state.user.email||'';
+  document.getElementById('profileAvatar').textContent = (state.user.name||'?')[0].toUpperCase();
+  const savedIds = await getSavedDeals();
+  const savedDeals = DEALS_DB.filter(d=>savedIds.includes(d.id));
+  document.getElementById('savedCount').textContent = savedDeals.length;
+  document.getElementById('totalSaved').textContent = savedDeals.length*'120 MAD'.replace(' MAD','') ? savedDeals.length*120+' MAD':'0 MAD';
+  await renderGrid('savedDealsGrid', savedDeals);
+}
+
+// ── DEAL MODAL ──
+function openDeal(id){
+  const deal = DEALS_DB.find(d=>d.id===id);
+  if(!deal) return;
+  // track click
+  deal.clicks++;
+  document.getElementById('dealModal').innerHTML = `
+    <button class="deal-modal-close" onclick="document.getElementById('dealOverlay').classList.remove('open')">✕</button>
+    <div class="deal-modal-icon">${deal.icon}</div>
+    <h3>${deal.title}</h3>
+    <div class="modal-store-badge">🏪 ${deal.store} &nbsp;·&nbsp; 📂 ${deal.cat} &nbsp;·&nbsp; ↗ ${deal.clicks} clicks</div>
+    <p style="font-size:.86rem;color:var(--muted);line-height:1.65">${deal.desc}</p>
+    <div class="modal-code-box">
+      <span class="modal-code">${deal.code}</span>
+      <button class="modal-copy" id="mcopy" onclick="modalCopy('${deal.code}')">📋 Copy</button>
+    </div>
+    <a href="${deal.url}" class="modal-visit" target="_blank">🛒 Visit ${deal.store} →</a>
+    <div class="ai-reasons">
+      <div class="label">🤖 Why AI picked this</div>
+      <div class="ai-reason-item">✅ Highest discount in ${deal.cat} category</div>
+      <div class="ai-reason-item">✅ Verified & active code</div>
+      <div class="ai-reason-item">✅ ${deal.aiScore}% AI relevance score</div>
+    </div>
+    <p style="font-size:.73rem;color:var(--muted);margin-top:12px;text-align:center">⏰ Expires: ${deal.expiry}</p>
+  `;
+  document.getElementById('dealOverlay').classList.add('open');
+}
+function modalCopy(code){
+  navigator.clipboard.writeText(code).catch(()=>{});
+  const b=document.getElementById('mcopy');
+  b.textContent='✅ Copied!';b.classList.add('copied');
+  toast('✅ Code '+code+' copied!');
+}
+
+// ── COPY ──
+function copyCode(code,id){
+  navigator.clipboard.writeText(code).catch(()=>{});
+  const b=document.getElementById('cp-'+id);
+  if(b){b.textContent='✓';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied');},2000);}
+  toast('✅ Code copied: '+code);
+}
+
+// ── TOAST ──
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// ── OVERLAYS ──
+function closeOverlay(e,id){if(e.target===document.getElementById(id))document.getElementById(id).classList.remove('open');}
+function openAuthModal(content){ document.getElementById('authModal').innerHTML=content; document.getElementById('authOverlay').classList.add('open'); }
+
+// ── AUTH ──
+function openAuth(mode){
+  if(mode==='login'){
+    openAuthModal(`
+      <button class="auth-close" onclick="document.getElementById('authOverlay').classList.remove('open')">✕</button>
+      <h3>Welcome back 👋</h3>
+      <p>Sign in to save deals and get AI-personalized recommendations.</p>
+      <div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="you@example.com"/></div>
+      <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••"/></div>
+      <button class="btn-full" onclick="doLogin()">Sign In</button>
+      <div class="auth-switch">Don't have an account? <a onclick="openAuth('signup')">Sign up free</a></div>
+      <div class="auth-switch" style="margin-top:6px"><a onclick="demoLogin()">→ Try demo account</a></div>
+    `);
+  } else {
+    openAuthModal(`
+      <button class="auth-close" onclick="document.getElementById('authOverlay').classList.remove('open')">✕</button>
+      <h3>Join Dealna 🎉</h3>
+      <p>Get personalized AI deal recommendations matched to your interests.</p>
+      <div class="form-row">
+        <div class="form-group" style="flex:1"><label>First Name</label><input id="regName" placeholder="Ahmed"/></div>
+        <div class="form-group" style="flex:1"><label>City</label><input id="regCity" placeholder="Casablanca"/></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="you@example.com"/></div>
+      <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Create password"/></div>
+      <div style="font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Interests (pick all that apply)</div>
+      <div class="prefs-grid">
+        <div class="pref-chip" onclick="this.classList.toggle('selected')" data-pref="Food">🍔 Food</div>
+        <div class="pref-chip" onclick="this.classList.toggle('selected')" data-pref="Fashion">👗 Fashion</div>
+        <div class="pref-chip" onclick="this.classList.toggle('selected')" data-pref="Electronics">📱 Electronics</div>
+        <div class="pref-chip" onclick="this.classList.toggle('selected')" data-pref="Beauty">💄 Beauty</div>
+        <div class="pref-chip" onclick="this.classList.toggle('selected')" data-pref="Travel">✈️ Travel</div>
+        <div class="pref-chip" onclick="this.classList.toggle('selected')" data-pref="Local">🌿 Local</div>
+      </div>
+      <button class="btn-full" onclick="doSignup()">Create Account</button>
+      <div class="auth-switch">Already have an account? <a onclick="openAuth('login')">Sign in</a></div>
+    `);
+  }
+}
+
+function doLogin(){
+  const email=document.getElementById('loginEmail')?.value;
+  const pass=document.getElementById('loginPass')?.value;
+  if(!email||!pass){toast('⚠️ Fill in all fields');return;}
+  loginUser({name:email.split('@')[0],email,prefs:[],savedDeals:[]});
+}
+function demoLogin(){ loginUser({name:'Ahmed',email:'ahmed@demo.ma',prefs:['Electronics','Food'],savedDeals:[1,9]}); }
+function doSignup(){
+  const name=document.getElementById('regName')?.value;
+  const email=document.getElementById('regEmail')?.value;
+  const city=document.getElementById('regCity')?.value;
+  const pass=document.getElementById('regPass')?.value;
+  if(!name||!email||!pass){toast('⚠️ Fill in all fields');return;}
+  const prefs=[...document.querySelectorAll('.pref-chip.selected')].map(c=>c.dataset.pref);
+  loginUser({name,email,city,prefs,savedDeals:[]});
+}
+function loginUser(user){
+  state.user=user;
+  saveUser();
+  document.getElementById('authOverlay').classList.remove('open');
+  updateNavForUser();
+  toast('👋 Welcome, '+user.name+'!');
+  renderAll();
+  // get AI recs after login
+  if(user.prefs&&user.prefs.length) getAIRecs(user);
+}
+function updateNavForUser(){
+  if(!state.user) return;
+  const nr=document.getElementById('navRight');
+  nr.innerHTML=`
+    <button class="nav-btn" onclick="goTo('profile')">💾 Saved</button>
+    <button class="user-avatar" onclick="goTo('profile')">${(state.user.name||'?')[0].toUpperCase()}</button>
+  `;
+}
+
+// ── AI RECOMMENDATIONS ──
+async function getAIRecs(user){
+  if(!user.prefs||!user.prefs.length) return;
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:500,
+        system:`You are Dealna's personalization AI. A user has these interests: ${user.prefs.join(', ')}.
+These are available deals: ${JSON.stringify(DEALS_DB.map(d=>({id:d.id,cat:d.cat,title:d.title,aiScore:d.aiScore})))}.
+Return ONLY JSON: {"recommended":[3,1,6],"message":"Short personalized greeting mentioning their interests"}`,
+        messages:[{role:'user',content:'Give me personalized deal recommendations'}]
+      })
+    });
+    const data=await resp.json();
+    const text=data.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+    const parsed=JSON.parse(text);
+    toast('🤖 '+parsed.message);
+    // Show AI banner on home
+    const banner=document.getElementById('aiSearchBanner');
+    if(banner){
+      banner.style.display='flex';
+      document.getElementById('aiSearchText').innerHTML=`<strong>🤖 Personalized for ${user.name}:</strong> ${parsed.message}`;
+      const recs=DEALS_DB.filter(d=>parsed.recommended.includes(d.id));
+      await renderGrid('homeGrid',recs,true);
+      state.aiSearchMode=true;
     }
-  });
-}, { threshold: 0.1 });
+  } catch(e){}
+}
 
-document.querySelectorAll('.how-step, .stat-card').forEach(el => {
-  el.style.opacity = '0';
-  observer.observe(el);
-});
+// ── AI CHAT ──
+function toggleChat(){
+  state.chatOpen=!state.chatOpen;
+  const w=document.getElementById('chatWindow');
+  w.classList.toggle('open',state.chatOpen);
+  if(state.chatOpen&&document.getElementById('chatMsgs').children.length===0){
+    addChatMsg('bot',"Hi! 👋 I'm Dealna AI, powered by Claude. I can help you find the best deals in Morocco, compare products, or answer questions about promo codes. What are you shopping for?");
+  }
+}
+function addChatMsg(role,text){
+  const msgs=document.getElementById('chatMsgs');
+  const div=document.createElement('div');
+  div.className='msg '+role;
+  const now=new Date().toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit'});
+  div.innerHTML=`
+    ${role==='bot'?`<div class="msg-avatar">🤖</div>`:''}
+    <div>
+      <div class="msg-bubble">${text}</div>
+      <div class="msg-time">${now}</div>
+    </div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function showTyping(){
+  const msgs=document.getElementById('chatMsgs');
+  const div=document.createElement('div');
+  div.className='msg bot';div.id='typing';
+  div.innerHTML=`<div class="msg-avatar">🤖</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+  msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
+}
+function removeTyping(){const t=document.getElementById('typing');if(t)t.remove();}
+function sendSuggestion(text){ document.getElementById('chatInput').value=text; sendChat(); }
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const q=input.value.trim();
+  if(!q) return;
+  addChatMsg('user',q);
+  input.value='';
+  document.getElementById('chatSuggestions').style.display='none';
+  showTyping();
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:`You are Dealna's friendly AI shopping assistant for Morocco. Help users find deals and save money.
+Available deals: ${JSON.stringify(DEALS_DB.map(d=>({id:d.id,title:d.title,cat:d.cat,store:d.store,discount:d.discount,code:d.code,desc:d.desc})))}.
+Be concise (under 120 words), helpful, and mention specific deals and promo codes when relevant. Use emojis naturally. 
+If recommending deals, format them as: **Deal Name** (CODE: XXXXXX, DISCOUNT% off).
+The user${state.user?' is '+state.user.name+' interested in '+(state.user.prefs||[]).join(', '):' is a guest'}.`,
+        messages:[{role:'user',content:q}]
+      })
+    });
+    const data=await resp.json();
+    const text=data.content.map(c=>c.text||'').join('');
+    removeTyping();
+    addChatMsg('bot',text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>'));
+  } catch(e){
+    removeTyping();
+    // Smart fallback
+    const kw=q.toLowerCase();
+    const matched=DEALS_DB.filter(d=>d.title.toLowerCase().includes(kw)||d.cat.toLowerCase().includes(kw)||d.store.toLowerCase().includes(kw));
+    if(matched.length){
+      addChatMsg('bot',`Here are some great deals I found! 🎯<br><br>${matched.slice(0,3).map(d=>`<strong>${d.title}</strong> — Code: <strong>${d.code}</strong> (${d.discount} off at ${d.store})`).join('<br>')}<br><br>Click any deal on the page to get more details and copy the promo code!`);
+    } else {
+      addChatMsg('bot',"I found some great deals for you! 🛍️ Browse our <strong>Electronics</strong>, <strong>Food</strong>, and <strong>Fashion</strong> categories for the latest savings. Use the search bar to find exactly what you're looking for!");
+    }
+  }
+}
+
+// ── ADMIN ──
+function renderAdmin(){
+  renderAdminTab(state.adminTab||'dashboard');
+}
+function adminTab(tab){
+  state.adminTab=tab;
+  document.querySelectorAll('.sidebar-item').forEach(s=>s.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  renderAdminTab(tab);
+}
+function renderAdminTab(tab){
+  const main=document.getElementById('adminMain');
+  if(tab==='dashboard') main.innerHTML=adminDashboard();
+  else if(tab==='deals') main.innerHTML=adminDeals();
+  else if(tab==='users') main.innerHTML=adminUsers();
+  else if(tab==='analytics') main.innerHTML=adminAnalytics();
+  else if(tab==='stores') main.innerHTML=adminStores();
+  else if(tab==='ai') main.innerHTML=adminAI();
+}
+function adminDashboard(){
+  const totalClicks=DEALS_DB.reduce((s,d)=>s+d.clicks,0);
+  const totalSaves=DEALS_DB.reduce((s,d)=>s+d.saves,0);
+  return `
+  <div class="admin-topbar"><h2>📊 Dashboard</h2><div style="font-size:.82rem;color:var(--muted)">Last updated: just now</div></div>
+  <div class="admin-grid">
+    <div class="stat-card"><div class="icon">🏷️</div><div class="val">${DEALS_DB.length}</div><div class="lbl">Active Deals</div><div class="trend">↑ 3 added this week</div></div>
+    <div class="stat-card"><div class="icon">👆</div><div class="val">${(totalClicks/1000).toFixed(1)}k</div><div class="lbl">Total Clicks</div><div class="trend">↑ 12% vs last week</div></div>
+    <div class="stat-card"><div class="icon">💙</div><div class="val">${totalSaves}</div><div class="lbl">Deal Saves</div><div class="trend">↑ 8% vs last week</div></div>
+    <div class="stat-card"><div class="icon">👥</div><div class="val">1,204</div><div class="lbl">Registered Users</div><div class="trend">↑ 47 this week</div></div>
+    <div class="stat-card"><div class="icon">💰</div><div class="val">38k MAD</div><div class="lbl">Affiliate Revenue</div><div class="trend">↑ 23% vs last month</div></div>
+    <div class="stat-card"><div class="icon">🤖</div><div class="val">94%</div><div class="lbl">AI Accuracy</div><div class="trend">↑ improving daily</div></div>
+  </div>
+  <div class="panel">
+    <h4>🔥 Top Performing Deals</h4>
+    <table>
+      <thead><tr><th>Deal</th><th>Store</th><th>Clicks</th><th>Saves</th><th>Status</th></tr></thead>
+      <tbody>${DEALS_DB.sort((a,b)=>b.clicks-a.clicks).slice(0,6).map(d=>`
+        <tr>
+          <td><strong>${d.title.substring(0,35)}…</strong></td>
+          <td>${d.store}</td>
+          <td>↗ ${d.clicks.toLocaleString()}</td>
+          <td>💙 ${d.saves}</td>
+          <td><span class="badge badge-active">Active</span></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+}
+function adminDeals(){
+  return `
+  <div class="admin-topbar"><h2>🏷️ Manage Deals</h2><button class="add-btn" onclick="toast('➕ Add deal form coming soon!')">＋ Add Deal</button></div>
+  <div class="panel">
+    <h4>All Deals (${DEALS_DB.length})</h4>
+    <table>
+      <thead><tr><th>Title</th><th>Store</th><th>Code</th><th>Category</th><th>Discount</th><th>Expires</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody>${DEALS_DB.map(d=>`
+        <tr>
+          <td><strong>${d.title.substring(0,28)}…</strong></td>
+          <td>${d.store}</td>
+          <td><code style="background:var(--bluedim);padding:2px 7px;border-radius:4px;font-size:.76rem;color:var(--blue);font-weight:700">${d.code}</code></td>
+          <td><span class="tag tag-cat">${d.cat}</span></td>
+          <td style="color:var(--orange);font-weight:700">${d.discount}</td>
+          <td style="font-size:.78rem">${d.expiry}</td>
+          <td><span class="badge badge-active">Active</span></td>
+          <td style="display:flex;gap:5px">
+            <button class="action-btn" onclick="toast('✏️ Edit coming soon!')">Edit</button>
+            <button class="action-btn danger" onclick="toast('🗑 Delete coming soon!')">Del</button>
+          </td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+}
+function adminUsers(){
+  const users=[
+    {name:'Ahmed K.',email:'ahmed@gmail.com',city:'Casablanca',prefs:'Electronics, Food',saves:12,joined:'Jan 15'},
+    {name:'Fatima Z.',email:'fatima@mail.ma',city:'Rabat',prefs:'Fashion, Beauty',saves:8,joined:'Jan 22'},
+    {name:'Youssef M.',email:'youssef@hotmail.com',city:'Marrakech',prefs:'Travel, Food',saves:21,joined:'Feb 1'},
+    {name:'Nadia B.',email:'nadia@gmail.com',city:'Fès',prefs:'Local, Beauty',saves:5,joined:'Feb 8'},
+    {name:'Omar A.',email:'omar@work.ma',city:'Agadir',prefs:'Electronics',saves:15,joined:'Feb 14'},
+  ];
+  return `
+  <div class="admin-topbar"><h2>👥 Users</h2><div style="font-size:.82rem;color:var(--muted)">1,204 total registered users</div></div>
+  <div class="panel">
+    <h4>Recent Users</h4>
+    <table>
+      <thead><tr><th>Name</th><th>Email</th><th>City</th><th>Interests</th><th>Saved</th><th>Joined</th><th>Status</th></tr></thead>
+      <tbody>${users.map(u=>`
+        <tr>
+          <td><strong>${u.name}</strong></td>
+          <td>${u.email}</td>
+          <td>🏙 ${u.city}</td>
+          <td style="font-size:.78rem;color:var(--muted)">${u.prefs}</td>
+          <td>💙 ${u.saves}</td>
+          <td style="font-size:.78rem">${u.joined}</td>
+          <td><span class="badge badge-active">Active</span></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+}
+function adminAnalytics(){
+  const cats=[
+    {name:'Electronics',pct:38,color:'var(--blue)'},
+    {name:'Food',pct:27,color:'var(--orange)'},
+    {name:'Fashion',pct:18,color:'var(--green)'},
+    {name:'Beauty',pct:10,color:'var(--gold)'},
+    {name:'Travel',pct:5,color:'#AA00FF'},
+    {name:'Local',pct:2,color:'#00BCD4'},
+  ];
+  return `
+  <div class="admin-topbar"><h2>📈 Analytics</h2></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="panel">
+      <h4>📊 Clicks by Category</h4>
+      ${cats.map(c=>`<div class="chart-bar-row"><span class="chart-label">${c.name}</span><div class="chart-track"><div class="chart-fill" style="width:${c.pct}%;background:${c.color}">${c.pct}%</div></div><span class="chart-val">${c.pct}%</span></div>`).join('')}
+    </div>
+    <div class="panel">
+      <h4>📅 Weekly Traffic</h4>
+      ${[{d:'Mon',v:72},{d:'Tue',v:89},{d:'Wed',v:65},{d:'Thu',v:94},{d:'Fri',v:78},{d:'Sat',v:100},{d:'Sun',v:61}].map(r=>`<div class="chart-bar-row"><span class="chart-label">${r.d}</span><div class="chart-track"><div class="chart-fill" style="width:${r.v}%;background:var(--blue)">${r.v}</div></div></div>`).join('')}
+    </div>
+    <div class="panel">
+      <h4>🏪 Top Stores by Clicks</h4>
+      ${STORES_DB.sort((a,b)=>b.clicks-a.clicks).slice(0,6).map(s=>`<div class="chart-bar-row"><span class="chart-label">${s.icon} ${s.name.split(' ')[0]}</span><div class="chart-track"><div class="chart-fill" style="width:${Math.round(s.clicks/220)}%;background:var(--navy)">${(s.clicks/1000).toFixed(1)}k</div></div></div>`).join('')}
+    </div>
+    <div class="panel">
+      <h4>🤖 AI Performance</h4>
+      ${[{l:'Search accuracy',v:94},{l:'Rec CTR',v:67},{l:'User satisfaction',v:88},{l:'Code validity',v:99},{l:'Coverage',v:72}].map(r=>`<div class="chart-bar-row"><span class="chart-label" style="font-size:.72rem;width:100px">${r.l}</span><div class="chart-track"><div class="chart-fill" style="width:${r.v}%;background:linear-gradient(90deg,var(--blue),var(--green))">${r.v}%</div></div></div>`).join('')}
+    </div>
+  </div>`;
+}
+function adminStores(){
+  return `
+  <div class="admin-topbar"><h2>🏪 Stores</h2><button class="add-btn" onclick="toast('➕ Add store form coming soon!')">＋ Add Store</button></div>
+  <div class="panel">
+    <h4>All Partner Stores (${STORES_DB.length})</h4>
+    <table>
+      <thead><tr><th>Store</th><th>Category</th><th>Active Deals</th><th>Total Clicks</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody>${STORES_DB.map(s=>`
+        <tr>
+          <td><strong>${s.icon} ${s.name}</strong></td>
+          <td><span class="tag tag-cat">${s.cat}</span></td>
+          <td>${s.count} deals</td>
+          <td>↗ ${s.clicks.toLocaleString()}</td>
+          <td><span class="badge badge-active">Active</span></td>
+          <td><button class="action-btn" onclick="toast('✏️ Edit coming soon!')">Edit</button></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+}
+function adminAI(){
+  return `
+  <div class="admin-topbar"><h2>🤖 AI Settings</h2></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="panel">
+      <h4>🧠 AI Model Config</h4>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem">
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Model</span><strong>claude-sonnet-4</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Chat mode</span><strong style="color:var(--green)">✅ Active</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Smart Search</span><strong style="color:var(--green)">✅ Active</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Personalization</span><strong style="color:var(--green)">✅ Active</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Deal Scoring</span><strong style="color:var(--green)">✅ Active</strong></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h4>📊 AI Usage Stats</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:.84rem">
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Total AI queries</span><strong>4,821</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Chat sessions</span><strong>1,203</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>AI searches</span><strong>987</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Rec impressions</span><strong>2,631</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:10px;background:var(--gray);border-radius:8px"><span>Avg response time</span><strong>1.4s</strong></div>
+      </div>
+    </div>
+    <div class="panel" style="grid-column:1/-1">
+      <h4>🤖 Test AI Search</h4>
+      <div style="display:flex;gap:10px;margin-bottom:14px">
+        <input id="aiTestInput" style="flex:1;border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-size:.88rem;outline:none;font-family:'Plus Jakarta Sans',sans-serif" placeholder="Test: 'best food deals in Casablanca'"/>
+        <button class="add-btn" onclick="testAI()">▶ Test AI</button>
+      </div>
+      <div id="aiTestResult" style="background:var(--gray);border-radius:10px;padding:14px;font-size:.84rem;min-height:60px;color:var(--muted)">AI response will appear here…</div>
+    </div>
+  </div>`;
+}
+async function testAI(){
+  const q=document.getElementById('aiTestInput')?.value;
+  if(!q){toast('Enter a test query');return;}
+  const res=document.getElementById('aiTestResult');
+  res.innerHTML='<div class="ai-thinking"><div class="ai-spinner"></div> Calling AI…</div>';
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:500,
+        system:`You are Dealna AI. Deals: ${JSON.stringify(DEALS_DB.map(d=>({id:d.id,title:d.title,cat:d.cat,discount:d.discount})))}. Return JSON: {"dealIds":[...],"summary":"...","tip":"..."}`,
+        messages:[{role:'user',content:q}]
+      })
+    });
+    const data=await resp.json();
+    const text=data.content.map(c=>c.text||'').join('');
+    res.innerHTML=`<pre style="font-size:.78rem;white-space:pre-wrap;color:var(--text)">${text}</pre>`;
+  } catch(e){ res.innerHTML='<span style="color:var(--red)">Error: '+e.message+'</span>'; }
+}
+
+// ── RENDER ALL ──
+async function renderAll(){
+  await renderHome(state.homeCat);
+}
+
+// ── INIT ──
+async function init(){
+  await loadUser();
+  await renderAll();
+  // Auto-open chat hint after 3s
+  setTimeout(()=>{
+    if(!state.chatOpen) toast('🤖 Ask our AI for personalized deals!');
+  },3000);
+}
+init();
 </script>
 </body>
 </html>
